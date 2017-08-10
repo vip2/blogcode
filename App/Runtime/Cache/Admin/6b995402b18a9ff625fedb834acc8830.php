@@ -36,39 +36,6 @@
 		<link rel="stylesheet" href="/public/static/admin/css/main.css" />
 		
 		
-<style type="text/css">
-	.status span{cursor: pointer;}
-	#widget-box-content #nav-search{
-		display: inline-block;
-		line-height: 3.8rem;
-		right: 7.5rem;
-	}
-	#widget-box-content #nav-search .nav-search-icon{
-		line-height: 3.6rem!important;
-	}
-	#nav-search .input-title{
-		display: inline-block;
-		background: #FFF;
-	}
-	#nav-search .input-select{
-		width: auto;
-		border-top-right-radius: 0!important;
-		border-bottom-right-radius: 0!important;
-	}
-	#nav-search .input-icon .nav-search-input{
-		border-top-left-radius: 0!important;
-		border-bottom-left-radius: 0!important;
-	}
-	#nav-search .input-icon input.nav-search-input{
-		padding-left: 0.6rem;
-		padding-right: 2.4rem;
-	}
-	#nav-search .input-icon .ace-icon{
-		left: auto;
-		right: 0.5rem;
-	}
-</style>
-
 		<link rel="stylesheet" href="/public/static/ace/css/ace-rtl.css" />
 		
 		
@@ -531,31 +498,17 @@
 				<div class="main-content-inner">
 					<!-- #section:basics/content.breadcrumbs -->
 					
-						<div class="breadcrumbs ace-save-state" id="breadcrumbs">
-							<ul class="breadcrumb">
-								<li>
-									<i class="ace-icon fa fa-home home-icon"></i>
-									<a href="<?php echo U('Admin/Index/index');?>">后台首页</a>
-								</li>
-								<?php if(!empty($_parent_page_title)): ?><li>
-										<a href="<?php echo ($_parent_page_href); ?>"><?php echo ($_parent_page_title); ?></a>
-									</li><?php endif; ?>
-								<li class="active"><?php echo ($_page_title); ?></li>
-							</ul><!-- /.breadcrumb -->
+	<div id="sidebar2" class="sidebar h-sidebar">
+	<ul class="nav nav-list" style="top: 0px;">
+		<?php if(is_array($systemMenus)): foreach($systemMenus as $k=>$vo): ?><li class="hover <?php if(($onType) == $k): ?>active<?php endif; ?>">
+				<a href="<?php echo U('System/index', array('type'=>$k));?>">
+					<span class="menu-text"> <?php echo ($vo); ?> </span>
+				</a>
+				<b class="arrow"></b>
+			</li><?php endforeach; endif; ?>
+	</ul><!-- /.nav-list -->
+</div>
 
-							<!-- #section:basics/content.searchbox -->
-							<div class="nav-search" id="nav-search">
-								<form class="form-search">
-									<span class="input-icon">
-										<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-										<i class="ace-icon fa fa-search nav-search-icon"></i>
-									</span>
-								</form>
-							</div><!-- /.nav-search -->
-
-							<!-- /section:basics/content.searchbox -->
-						</div>
-					
 					<!-- /section:basics/content.breadcrumbs -->
 					<div class="page-content">
 						<!-- #section:settings.box -->
@@ -652,124 +605,138 @@
 							<div class="col-xs-12">
 								
 									
-<!-- S -->
+<form class="form-horizontal" method="POST" role="form" action="<?php echo U("System/$onType");?>">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
 
-<div class="widget-container-col" id="widget-container-col-11">
-	<div class="widget-box widget-color-blue2" id="widget-box-content">
-		<div class="widget-header">
-			<h6 class="widget-title">
-				<i class="menu-icon fa fa-list"></i>&ensp;<?php echo ($_page_title); ?>
-
-			</h6>
-			<div class="nav-search" id="nav-search">
-				<form class="form-search" action="/index.php/Admin/Admin/index.html" method="GET">
-					<select name="status" class="nav-search-input input-select" onchange="$('.form-search').submit();">
-						<option value="全部" <?php if(($_status) == "全部"): ?>selected<?php endif; ?>>全部</option>
-						<option value="1" <?php if(($_status) == "1"): ?>selected<?php endif; ?>>正常</option>
-						<option value="0" <?php if(($_status) == "0"): ?>selected<?php endif; ?>>禁用</option>
-					</select><span class="input-icon">
-						<input type="text" name="keywords" value="<?php echo ($get["keywords"]); ?>" placeholder="收索" class="nav-search-input" id="nav-search-input" autocomplete="off">
-						<i class="ace-icon fa fa-search nav-search-icon" onclick="$('.form-search').submit();"></i>
-					</span>
-				</form>
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-PAGE_DEFAULT_NUM"> 默认分页条数 </label>
+				<div class="col-sm-9 col-xs-7">
+					<select name="PAGE_DEFAULT_NUM" id="field-PAGE_DEFAULT_NUM" class="col-xs-10 col-sm-10 input-sm" placeholder="默认分页条数">
+						<?php if(is_array(C("PAGE_LIST_NUM"))): foreach(C("PAGE_LIST_NUM") as $key=>$vo): ?><option value="<?php echo ($vo); ?>" <?php if(($data["PAGE_DEFAULT_NUM"]) == $vo): ?>selected<?php endif; ?>>显示 <?php echo ($vo); ?> 条</option><?php endforeach; endif; ?>
+					</select>
+				</div>
 			</div>
-			<div class="widget-toolbar">
 
-				<a href="javascript:void(0);" class="href-url" title="新增" onclick='location.href="<?php echo U('add');?>"' data-action="settings">
-					<i class="ace-icon fa fa-plus"></i>
-				</a>
-
-				<a href="#my-modal" class="href-url" title="导入" data-toggle="modal" data-action="settings">
-					<i class="ace-icon fa fa-upload"></i>
-				</a>
-
-				<a href="#" data-action="fullscreen" class="orange2">
-					<i class="ace-icon fa fa-expand"></i>
-				</a>
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>图片相关配置</b> </label>
 			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-IMG_MAX_SIZE"> 图片最大上限 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-IMG_MAX_SIZE" name="IMG_MAX_SIZE" value="<?php echo ($data["IMG_MAX_SIZE"]); ?>" placeholder="图片最大上限" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-IMG_EXTS"> 图片上传格式 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-IMG_EXTS" name="IMG_EXTS" value="<?php echo ($data["IMG_EXTS"]); ?>" placeholder="图片上传格式,以|分割" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-IMG_ROOT_PATH"> 图片上传目录 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-IMG_ROOT_PATH" name="IMG_ROOT_PATH" value="<?php echo ($data["IMG_ROOT_PATH"]); ?>" placeholder="图片上传目录,以/结束" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>编号自动生成</b> </label>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_CODE_CAPITAL"> 编号自动转换 </label>
+				<div class="col-sm-9 col-xs-7">
+					<select name="AUTO_CODE_CAPITAL" id="field-AUTO_CODE_CAPITAL" class="col-xs-10 col-sm-10 input-sm" placeholder="编号自动转换">
+						<option value="upper" <?php if(($data["AUTO_CODE_CAPITAL"]) == "upper"): ?>selected<?php endif; ?>>大写</option>
+						<option value="lower" <?php if(($data["AUTO_CODE_CAPITAL"]) == "lower"): ?>selected<?php endif; ?>>小写</option>
+						<option value="false" <?php if(($data["AUTO_CODE_CAPITAL"]) == ""): ?>selected<?php endif; ?>>不变</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_CODE_LENGTH"> 编号生成长度 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-AUTO_CODE_LENGTH" name="AUTO_CODE_LENGTH" value="<?php echo ($data["AUTO_CODE_LENGTH"]); ?>" placeholder="编号生成长度" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_ADMIN_CODE"> 用户编号前缀 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-AUTO_ADMIN_CODE" name="AUTO_ADMIN_CODE" value="<?php echo ($data["AUTO_ADMIN_CODE"]); ?>" placeholder="用户编号前缀" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>验证码配置</b> </label>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_CODE_LENGTH"> 验证码长度 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_CODE_LENGTH" name="YZM_CODE_LENGTH" value="<?php echo ($data["YZM_CODE_LENGTH"]); ?>" placeholder="验证码长度" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_CODE_W"> 验证码宽度 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_CODE_W" name="YZM_CODE_W" value="<?php echo ($data["YZM_CODE_W"]); ?>" placeholder="验证码宽度" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_CODE_H"> 验证码高度 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_CODE_H" name="YZM_CODE_H" value="<?php echo ($data["YZM_CODE_H"]); ?>" placeholder="验证码高度" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_CODE_SET"> 验证码字符 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_CODE_SET" name="YZM_CODE_SET" value="<?php echo ($data["YZM_CODE_SET"]); ?>" placeholder="验证码字符,默认数字字母" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_FONT_SIZE"> 验证码字体大小 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_FONT_SIZE" name="YZM_FONT_SIZE" value="<?php echo ($data["YZM_FONT_SIZE"]); ?>" placeholder="验证码字体大小" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_USE_NOISE"> 是否添加杂点 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input name="YZM_USE_NOISE" value="true" <?php if(($data["YZM_USE_NOISE"]) == "true"): ?>checked<?php endif; ?> id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+						<span class="lbl"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_USE_CURVE"> 使用混淆曲线 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input name="YZM_USE_CURVE" value="true" <?php if(($data["YZM_USE_CURVE"]) == "true"): ?>checked<?php endif; ?> id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+						<span class="lbl"></span>
+				</div>
+			</div>
+
 		</div>
-
-		<div class="widget-body">
-			<!-- #section:custom/scrollbar -->
-			<div class="widget-main no-padding scrollable" data-size="125">
-				<!-- 表单 开始 -->
-				<table id="data-table" class="table table-bordered table-hover">
-					<thead>
-						<tr>
-							<th class="center detail-col">编号</th>
-							<th class="center hidden-480">用户名称</th>
-							<th class="center">用户昵称</th>
-							<th class="center">手机号</th>
-							<th class="center">邮箱</th>
-							<th class="center hidden-320">状态</th>
-							<th class="center hidden-320">操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php if(is_array($data)): foreach($data as $key=>$vo): ?><tr>
-								<td class="center"><?php echo ($vo["adminno"]); ?></td>
-								<td class="center"><a title="<?php echo ($vo["adminuser"]); ?>" href="<?php echo U('info',array('id'=>$vo['id']));?>"><?php echo ($vo["adminuser"]); ?></a></td>
-								<td class="center"><a title="<?php echo ($vo["nickname"]); ?>" href="<?php echo U('info',array('id'=>$vo['id']));?>"><?php echo ($vo["nickname"]); ?></a></td>
-								<td class="center"><?php echo ($vo["mobile"]); ?></td>
-								<td class="center"><?php echo ($vo["email"]); ?></td>
-								<td class="center status">
-									<?php if(($vo["status"]) == "1"): ?><span class="label label-sm label-success" data-id="<?php echo ($vo["id"]); ?>">正常</span>
-									<?php else: ?>
-										<span class="label label-sm label-warning" data-id="<?php echo ($vo["id"]); ?>">禁用</span><?php endif; ?>
-								</td>
-								<td class="center">
-									<div class="action-buttons">
-										<a class="blue info" title="查看详情" href="<?php echo U('info',array('id'=>$vo['id']));?>">
-											<i class="ace-icon fa fa-search-plus bigger-110"></i>
-										</a>
-										<a class="blue edit" title="修改" href="<?php echo U('edit',array('id'=>$vo['id']));?>">
-											<i class="ace-icon fa fa-pencil bigger-110"></i>
-										</a>
-										<?php if(($vo["id"]) == "1"): ?>&emsp;&emsp;
-										<?php else: ?>
-											<a class="red del" title="删除" href="<?php echo U('del',array('id'=>$vo['id']));?>">
-												<i class="ace-icon glyphicon glyphicon-remove bigger-110"></i>
-											</a><?php endif; ?>
-									</div>
-								</td>
-							</tr><?php endforeach; endif; ?>
-					</tbody>
-				</table>
-				<!-- <table id="nodes-table"></table> -->
-				<!-- 表单 结束 -->
-			</div>
-			<!-- /section:custom/scrollbar -->
-			<div class="widget-toolbox padding-4 clearfix">
-				<div class="pull-right"><div class="my-page"><?php echo ($page); ?></div></div>
+		<div class="col-xs-12">
+			<div class="btn-group pull-left">
+				<button type="submit" class="btn btn-sm btn-success btn-bold">
+					<i class="ace-icon fa fa-save"></i>
+					保存
+				</button> 
 			</div>
 		</div>
 	</div>
-</div>
-
-<!-- E -->
-<!-- 弹窗 -->
-<div id="my-modal" class="modal fade" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h3 class="smaller lighter blue no-margin">导入用户数据</h3>
-			</div>
-
-			<div class="modal-body">
-				
-			</div>
-
-			<div class="modal-footer">
-				<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
-					<i class="ace-icon fa fa-times"></i>
-					Close
-				</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div>
-
+</form>
 
 								
 							</div><!-- /.col -->
@@ -803,25 +770,6 @@
 		<script type="text/javascript" src="/public/static/admin/js/main.js"></script>
 		
 		
-<script type="text/javascript">
-var _clickOne = true;
-$('#data-table .status span').on('click',function(){
-	var id = $(this).data('id');
-	if (id && _clickOne) {
-		_clickOne = false;
-		$.ajax({
-			url: "<?php echo U('setStatus');?>",
-			type: 'POST',
-			data: {"id": id},
-			dataype: 'json',
-			success: function(data) {
-				window.location.reload();
-			}
-		});
-	}
-});
-</script>
-
 
 		
 		<script src="/public/static/ace/js/src/elements.scroller.js"></script>

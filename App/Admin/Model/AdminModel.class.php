@@ -33,7 +33,6 @@ class AdminModel extends Model
 		array('email','','邮箱已经存在！', 2, 'unique', 3),
 		array('mobile','/^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$/','手机号码错误！',2,'regex',3),
 		array('mobile','','手机号已经存在！', 2, 'unique', 3),
-		array('group_id', 'number', '部门的ID必须是一个整数！', 1, 'regex', 3),
 	);
 	// 验证码验证
 	public function chk_captcha($code)
@@ -48,9 +47,7 @@ class AdminModel extends Model
 		$adminuser = $this->adminuser;
 		$password = $this->password;
 		// 先查询数据库有没有这个账号
-		$user = $this->alias('a')->field(array('a.*','b.`groupname`'))
-				->join(" LEFT JOIN `".C('DB_PREFIX')."group` b ON a.`group_id` = b.`id`")
-				->where(array('adminuser' => $adminuser))->find();
+		$user = $this->alias('a')->where(array('adminuser' => $adminuser))->find();
 		// 判断有没有账号
 		if($user)
 		{
@@ -111,9 +108,7 @@ class AdminModel extends Model
 		$page->setConfig('theme','%HEADER% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE%');
 		$data['page'] = $page->show();
 		// 获取数据
-		$data['data'] = $this->alias('a')->field(array('a.*','b.`groupname`'))
-						->join(" LEFT JOIN `".C('DB_PREFIX')."group` b ON a.`group_id` = b.`id`")
-						->where($map)->group('a.id')->limit($page->firstRow.','.$page->listRows)->select();
+		$data['data'] = $this->alias('a')->where($map)->group('a.id')->limit($page->firstRow.','.$page->listRows)->select();
 		$data['_status'] = $status;
 		return $data;
 	}
@@ -189,8 +184,7 @@ class AdminModel extends Model
 	// 获取用户详情
 	public function getInfo($id)
 	{
-		$data = $this->alias('a')->field(array('a.*','b.`groupname`'))
-				->join(" LEFT JOIN `".C('DB_PREFIX')."group` b ON a.`group_id` = b.`id`")
+		$data = $this->alias('a')
 				->where(array('a.id'=>$id))->find();
 		if ($data) {
 			// 获取对应的角色

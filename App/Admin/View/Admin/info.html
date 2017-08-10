@@ -56,46 +56,13 @@
 						<th>是否启用</th><td><eq name="data.status" value="1">启用<else /> 禁用</eq></td>
 					</tr>
 					<tr>
-						<th>所属部门</th><td><{$data.groupname}></td>
 						<th>所属角色</th>
-						<td>
+						<td colspan="3">
 							<foreach name="data.roles" item="val">
 								<span class="label label-sm label-info"><{$val.title}></span>
 							</foreach>
 						</td>
 					</tr>
-			<!-- 		<tbody>
-						<foreach name="data" item="vo">
-							<tr>
-								<td class="center"><{$vo.adminno}></td>
-								<td class="center"><a title="<{$vo.adminuser}>" href="<{:U('info',array('id'=>$vo['id']))}>"><{$vo.adminuser}></a></td>
-								<td class="center"><a title="<{$vo.nickname}>" href="<{:U('info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
-								<td class="center"><{$vo.groupname}></td>
-								<td class="center"><{$vo.mobile}></td>
-								<td class="center"><{$vo.email}></td>
-								<td class="center status">
-									<eq name="vo.status" value="1">
-										<span class="label label-sm label-success" data-id="<{$vo.id}>">正常</span>
-									<else/>
-										<span class="label label-sm label-warning" data-id="<{$vo.id}>">禁用</span>
-									</eq>
-								</td>
-								<td class="center">
-									<div class="action-buttons">
-										<a class="blue info" title="查看详情" href="<{:U('info',array('id'=>$vo['id']))}>">
-											<i class="ace-icon fa fa-search-plus bigger-110"></i>
-										</a>
-										<a class="blue edit" title="修改" href="<{:U('edit',array('id'=>$vo['id']))}>">
-											<i class="ace-icon fa fa-pencil bigger-110"></i>
-										</a>
-										<a class="red del" title="删除" href="<{:U('del',array('id'=>$vo['id']))}>">
-											<i class="ace-icon glyphicon glyphicon-remove bigger-110"></i>
-										</a>
-									</div>
-								</td>
-							</tr>
-						</foreach>
-					</tbody> -->
 				</table>
 				<!-- <table id="nodes-table"></table> -->
 				<!-- 表单 结束 -->

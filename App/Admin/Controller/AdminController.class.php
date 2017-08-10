@@ -30,9 +30,7 @@ class AdminController extends IndexController
     		}
     		$this->error($model->getError());
     	}
-        // 获取部门数据
-        $groupData = D('Admin/Group')->getTree();
-        $this->assign('groupData', $groupData);
+
         // 获取角色数据
         $roleData = D('Admin/Role')->search(100);
         $this->assign('roleData', $roleData['data']);
@@ -61,9 +59,7 @@ class AdminController extends IndexController
     	$model = M('Admin');
     	$data = $model->find($id);
     	$this->assign('data', $data);
-        // 获取部门数据
-        $groupData = D('Admin/Group')->getTree();
-        $this->assign('groupData', $groupData);
+
         // 获取角色数据
         $roleData = D('Admin/Role')->search(100);
         $this->assign('roleData', $roleData['data']);

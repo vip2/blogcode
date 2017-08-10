@@ -92,17 +92,6 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-group_id"> 所属部门 </label>
-						<div class="col-sm-9">
-							<select name="group_id" id="field-group_id" class="col-xs-10 col-sm-10" placeholder="所属部门">
-								<foreach name="groupData" item="vo">
-									<option value="<{$vo.id}>"><?php echo str_repeat('&ensp;', ($vo['level']-1) * 3); ?>|__ <{$vo.groupname}></option>
-								</foreach>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
 						<label class="col-sm-3 control-label no-padding-right" for="field-status"> 是否启用 </label>
 						<div class="col-sm-9">
 							<input name="status" value="1" id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />

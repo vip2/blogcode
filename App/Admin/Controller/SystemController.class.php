@@ -79,7 +79,6 @@ class SystemController extends IndexController
         $systemData['AUTO_CODE_CAPITAL'] = $systemData['AUTO_CODE_CAPITAL'] === 'false'?false:$systemData['AUTO_CODE_CAPITAL'];
         $systemData['AUTO_CODE_LENGTH'] = I('post.AUTO_CODE_LENGTH/d', 6);
         $systemData['AUTO_ADMIN_CODE'] = I('post.AUTO_ADMIN_CODE', 'U');
-        $systemData['AUTO_GROUP_CODE'] = I('post.AUTO_GROUP_CODE', 'G');
 
         // 图片设置
         $systemData['IMG_MAX_SIZE'] = I('post.IMG_MAX_SIZE/d', 3);

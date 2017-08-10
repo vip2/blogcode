@@ -81,7 +81,6 @@
 							<th class="center detail-col">编号</th>
 							<th class="center hidden-480">用户名称</th>
 							<th class="center">用户昵称</th>
-							<th class="center">部门</th>
 							<th class="center">手机号</th>
 							<th class="center">邮箱</th>
 							<th class="center hidden-320">状态</th>
@@ -94,7 +93,6 @@
 								<td class="center"><{$vo.adminno}></td>
 								<td class="center"><a title="<{$vo.adminuser}>" href="<{:U('info',array('id'=>$vo['id']))}>"><{$vo.adminuser}></a></td>
 								<td class="center"><a title="<{$vo.nickname}>" href="<{:U('info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
-								<td class="center"><{$vo.groupname}></td>
 								<td class="center"><{$vo.mobile}></td>
 								<td class="center"><{$vo.email}></td>
 								<td class="center status">

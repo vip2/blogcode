@@ -26,12 +26,7 @@
 						<foreach name="Think.config.PAGE_LIST_NUM" item="vo">
 							<option value="<{$vo}>" <eq name="data.PAGE_DEFAULT_NUM" value="$vo">selected</eq>>显示 <{$vo}> 条</option>
 						</foreach>
-					<!-- 	<option value="upper" <eq name="data.AUTO_CODE_CAPITAL" value="upper">selected</eq>>大写</option>
-						<option value="lower" <eq name="data.AUTO_CODE_CAPITAL" value="lower">selected</eq>>小写</option>
-						<option value="false" <eq name="data.AUTO_CODE_CAPITAL" value="">selected</eq>>不变</option> -->
 					</select>
-
-<!-- 					<input type="text" id="field-IMG_MAX_SIZE" name="IMG_MAX_SIZE" value="<{$data.IMG_MAX_SIZE}>" placeholder="默认分页条数" class="col-xs-10 col-sm-10 input-sm" /> -->
 				</div>
 			</div>
 
@@ -85,13 +80,6 @@
 				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_ADMIN_CODE"> 用户编号前缀 </label>
 				<div class="col-sm-9 col-xs-7">
 					<input type="text" id="field-AUTO_ADMIN_CODE" name="AUTO_ADMIN_CODE" value="<{$data.AUTO_ADMIN_CODE}>" placeholder="用户编号前缀" class="col-xs-10 col-sm-10 input-sm" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_GROUP_CODE"> 部门编号前缀 </label>
-				<div class="col-sm-9 col-xs-7">
-					<input type="text" id="field-AUTO_GROUP_CODE" name="AUTO_GROUP_CODE" value="<{$data.AUTO_GROUP_CODE}>" placeholder="部门编号前缀" class="col-xs-10 col-sm-10 input-sm" />
 				</div>
 			</div>
 

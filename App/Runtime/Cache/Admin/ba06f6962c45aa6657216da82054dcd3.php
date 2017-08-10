@@ -36,38 +36,24 @@
 		<link rel="stylesheet" href="/public/static/admin/css/main.css" />
 		
 		
+<link rel="stylesheet" type="text/css" href="/public/static/components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
+<link rel="stylesheet" type="text/css" href="/public/static/components/bootstrap-daterangepicker/daterangepicker.min.css">
 <style type="text/css">
-	.status span{cursor: pointer;}
-	#widget-box-content #nav-search{
-		display: inline-block;
-		line-height: 3.8rem;
-		right: 7.5rem;
+	#my-table-tool .search-select{
+		margin-bottom: 2px;
 	}
-	#widget-box-content #nav-search .nav-search-icon{
-		line-height: 3.6rem!important;
+	#my-table-tool .search-btn{
+		margin-bottom: 3px;
+		line-height: .9em;
 	}
-	#nav-search .input-title{
-		display: inline-block;
-		background: #FFF;
+	#data-table .td-img{
+		padding: 2px;
 	}
-	#nav-search .input-select{
-		width: auto;
-		border-top-right-radius: 0!important;
-		border-bottom-right-radius: 0!important;
-	}
-	#nav-search .input-icon .nav-search-input{
-		border-top-left-radius: 0!important;
-		border-bottom-left-radius: 0!important;
-	}
-	#nav-search .input-icon input.nav-search-input{
-		padding-left: 0.6rem;
-		padding-right: 2.4rem;
-	}
-	#nav-search .input-icon .ace-icon{
-		left: auto;
-		right: 0.5rem;
+	#data-table .cursor-pointer span{
+		cursor: pointer;
 	}
 </style>
+
 
 		<link rel="stylesheet" href="/public/static/ace/css/ace-rtl.css" />
 		
@@ -653,123 +639,137 @@
 								
 									
 <!-- S -->
-
-<div class="widget-container-col" id="widget-container-col-11">
-	<div class="widget-box widget-color-blue2" id="widget-box-content">
-		<div class="widget-header">
-			<h6 class="widget-title">
-				<i class="menu-icon fa fa-list"></i>&ensp;<?php echo ($_page_title); ?>
-
-			</h6>
-			<div class="nav-search" id="nav-search">
-				<form class="form-search" action="/index.php/Admin/Admin/index.html" method="GET">
-					<select name="status" class="nav-search-input input-select" onchange="$('.form-search').submit();">
-						<option value="全部" <?php if(($_status) == "全部"): ?>selected<?php endif; ?>>全部</option>
-						<option value="1" <?php if(($_status) == "1"): ?>selected<?php endif; ?>>正常</option>
-						<option value="0" <?php if(($_status) == "0"): ?>selected<?php endif; ?>>禁用</option>
-					</select><span class="input-icon">
-						<input type="text" name="keywords" value="<?php echo ($get["keywords"]); ?>" placeholder="收索" class="nav-search-input" id="nav-search-input" autocomplete="off">
-						<i class="ace-icon fa fa-search nav-search-icon" onclick="$('.form-search').submit();"></i>
-					</span>
-				</form>
-			</div>
-			<div class="widget-toolbar">
-
-				<a href="javascript:void(0);" class="href-url" title="新增" onclick='location.href="<?php echo U('add');?>"' data-action="settings">
-					<i class="ace-icon fa fa-plus"></i>
-				</a>
-
-				<a href="#my-modal" class="href-url" title="导入" data-toggle="modal" data-action="settings">
-					<i class="ace-icon fa fa-upload"></i>
-				</a>
-
-				<a href="#" data-action="fullscreen" class="orange2">
-					<i class="ace-icon fa fa-expand"></i>
-				</a>
-			</div>
-		</div>
-
-		<div class="widget-body">
-			<!-- #section:custom/scrollbar -->
-			<div class="widget-main no-padding scrollable" data-size="125">
-				<!-- 表单 开始 -->
-				<table id="data-table" class="table table-bordered table-hover">
-					<thead>
-						<tr>
-							<th class="center detail-col">编号</th>
-							<th class="center hidden-480">用户名称</th>
-							<th class="center">用户昵称</th>
-							<th class="center">手机号</th>
-							<th class="center">邮箱</th>
-							<th class="center hidden-320">状态</th>
-							<th class="center hidden-320">操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php if(is_array($data)): foreach($data as $key=>$vo): ?><tr>
-								<td class="center"><?php echo ($vo["adminno"]); ?></td>
-								<td class="center"><a title="<?php echo ($vo["adminuser"]); ?>" href="<?php echo U('info',array('id'=>$vo['id']));?>"><?php echo ($vo["adminuser"]); ?></a></td>
-								<td class="center"><a title="<?php echo ($vo["nickname"]); ?>" href="<?php echo U('info',array('id'=>$vo['id']));?>"><?php echo ($vo["nickname"]); ?></a></td>
-								<td class="center"><?php echo ($vo["mobile"]); ?></td>
-								<td class="center"><?php echo ($vo["email"]); ?></td>
-								<td class="center status">
-									<?php if(($vo["status"]) == "1"): ?><span class="label label-sm label-success" data-id="<?php echo ($vo["id"]); ?>">正常</span>
-									<?php else: ?>
-										<span class="label label-sm label-warning" data-id="<?php echo ($vo["id"]); ?>">禁用</span><?php endif; ?>
-								</td>
-								<td class="center">
-									<div class="action-buttons">
-										<a class="blue info" title="查看详情" href="<?php echo U('info',array('id'=>$vo['id']));?>">
-											<i class="ace-icon fa fa-search-plus bigger-110"></i>
-										</a>
-										<a class="blue edit" title="修改" href="<?php echo U('edit',array('id'=>$vo['id']));?>">
-											<i class="ace-icon fa fa-pencil bigger-110"></i>
-										</a>
-										<?php if(($vo["id"]) == "1"): ?>&emsp;&emsp;
-										<?php else: ?>
-											<a class="red del" title="删除" href="<?php echo U('del',array('id'=>$vo['id']));?>">
+<form class="form-horizontal form-search" role="form" method="get" action="/index.php/Admin/Article/recycleBin.html">
+	<div class="my-table-tool" id="my-table-tool">
+		<select name="fledname" class="nav-search-input input-select input-sm search-select">
+			<option value="title" <?php if(($_GET['fledname']) == "title"): ?>selected<?php endif; ?>>标题</option>
+			<option value="catename" <?php if(($_GET['fledname']) == "catename"): ?>selected<?php endif; ?>>类型</option>
+			<option value="keywords" <?php if(($_GET['fledname']) == "keywords"): ?>selected<?php endif; ?>>关键词</option>
+		</select>
+		<input type="text" name="keyword" value="<?php echo ((isset($_GET['keyword']) && ($_GET['keyword'] !== ""))?($_GET['keyword']):''); ?>" placeholder="请输入" class="nav-search-input input-sm" id="nav-search-input" autocomplete="off"">
+		&ensp;
+		发布时间
+		<input type="text" placeholder="发布时间" name="pushtime" value="<?php echo ($_GET['pushtime']); ?>" class="nav-search-input input-sm" id="field-pushtime" autocomplete="off" style="width: 180px;"">
+		<button type="submit" class="btn btn-inverse btn-white input-sm nav-search-input search-btn">
+			<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+			搜索
+		</button>
+	</div>
+	<div class="widget-container-col" id="widget-container-col-11">
+		<div class="widget-box widget-color-blue2" id="widget-box-content">
+			<div class="widget-body">
+				<!-- #section:custom/scrollbar -->
+				<div class="widget-main no-padding scrollable" data-size="125">
+					<!-- 表单 开始 -->
+					<table id="data-table" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th class="center detail-col">
+									<label class="pos-rel">
+										<input type="checkbox" class="ace">
+										<span class="lbl"></span>
+									</label>
+								</th>
+								<th class="center hidden-320">文章标题</th>
+								<th class="center">文章图片</th>
+								<th class="center">发布时间</th>
+								<th class="center">文章类型</th>
+								<th class="center">点击量</th>
+								<th class="center">浏览量</th>
+								<th class="center">是否显示</th>
+								<th class="center">是否热门</th>
+								<th class="center">是否置顶</th>
+								<th class="center">是否转载</th>
+								<?php if(($isRecycle) == "is"): ?><th class="center">是否还原</th><?php endif; ?>
+								<th class="center hidden-320">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php if(empty($data)): ?><tr>
+									<td class="center" colspan ="100">
+										没有相关数据！
+									</td>
+								</tr>
+							<?php else: ?> 
+							<?php if(is_array($data)): foreach($data as $key=>$vo): ?><tr>
+									<td class="center">
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" value="<?php echo ($vo["id"]); ?>">
+											<span class="lbl"></span>
+										</label>
+									</td>
+									<td class="center">
+										<a title="<?php echo ($vo["title"]); ?>" href="<?php echo U('info',array('id'=>$vo['id']));?>"><?php echo (cutStr($vo["title"],20)); ?></a>
+									</td>
+									<td class="center td-img"><?php echo showImage($vo['minimg'], 60, 45);?></td>
+									<td class="center"><?php echo ($vo["pushtime"]); ?></td>
+									<td class="center"><?php echo ($vo["catename"]); ?></td>
+									<td class="center"><?php echo ($vo["clicknum"]); ?></td>
+									<td class="center"><?php echo ($vo["looknum"]); ?></td>
+									<td class="center cursor-pointer">
+										<span data-field="status" data-id="<?php echo ($vo["id"]); ?>" class="label label-sm 
+											<?php if(($vo["status"]) == "1"): ?>label-success">显示<?php else: ?>label-grey">隐藏<?php endif; ?>
+										</span>
+									</td>
+									<td class="center cursor-pointer">
+										<span data-field="ishot" data-id="<?php echo ($vo["id"]); ?>" class="label label-sm 
+											<?php if(($vo["ishot"]) == "1"): ?>label-danger">热门<?php else: ?>label-success">正常<?php endif; ?>
+										</span>
+									</td>
+									<td class="center cursor-pointer">
+										<span data-field="istop" data-id="<?php echo ($vo["id"]); ?>" class="label label-sm 
+											<?php if(($vo["istop"]) == "1"): ?>label-warning">置顶<?php else: ?>label-success">正常<?php endif; ?>
+										</span>
+									</td>
+									<td class="center cursor-pointer">
+										<span data-field="iscopy" data-id="<?php echo ($vo["id"]); ?>" class="label label-sm 
+											<?php if(($vo["iscopy"]) == "1"): ?>label-grey">转载<?php else: ?>label-success">原创<?php endif; ?>
+										</span>
+									</td>
+									<?php if(($isRecycle) == "is"): ?><td class="center cursor-pointer">
+											<span data-field="deleted" data-id="<?php echo ($vo["id"]); ?>" class="label label-sm label-success">还原</span>
+										</td><?php endif; ?>
+									<td class="center">
+										<div class="action-buttons">
+											<a class="blue info" title="查看详情" href="<?php echo U('info',array('id'=>$vo['id']));?>">
+												<i class="ace-icon fa fa-search-plus bigger-110"></i>
+											</a>
+											<a class="blue edit" title="修改" href="<?php echo U('edit',array('id'=>$vo['id']));?>">
+												<i class="ace-icon fa fa-pencil bigger-110"></i>
+											</a>
+											<a class="red del" title="删除" href="<?php echo U($isRecycle.'del',array('id'=>$vo['id']));?>">
 												<i class="ace-icon glyphicon glyphicon-remove bigger-110"></i>
-											</a><?php endif; ?>
-									</div>
-								</td>
-							</tr><?php endforeach; endif; ?>
-					</tbody>
-				</table>
-				<!-- <table id="nodes-table"></table> -->
-				<!-- 表单 结束 -->
-			</div>
-			<!-- /section:custom/scrollbar -->
-			<div class="widget-toolbox padding-4 clearfix">
-				<div class="pull-right"><div class="my-page"><?php echo ($page); ?></div></div>
+											</a>
+										</div>
+									</td>
+								</tr><?php endforeach; endif; endif; ?>
+						</tbody>
+					</table>
+					<!-- <table id="nodes-table"></table> -->
+					<!-- 表单 结束 -->
+				</div>
+				<!-- /section:custom/scrollbar -->
+				<div class="widget-toolbox padding-4 clearfix my-footer-tool">
+					<div class="pull-left">
+						<div class="btn-group">
+							<button type="button" class="btn btn-white btn-sm btn-danger btn-bold alldel">
+								<i class="ace-icon fa fa-trash-o bigger-120 orange"></i> 删除
+							</button>
+							<a href="<?php echo U('add');?>" class="btn btn-white btn-sm btn-primary btn-bold">
+								<i class="ace-icon fa fa-plus bigger-120 blue"></i> 新增
+							</a>
+							<select name="pnum" class="btn btn-white btn-sm btn-primary btn-bold select-num" onchange="$('.form-search').submit();">
+								<?php if(is_array(C("PAGE_LIST_NUM"))): foreach(C("PAGE_LIST_NUM") as $key=>$vo): ?><option value="<?php echo ($vo); ?>" <?php echo I('get.pnum', getPaegNum())==$vo?'selected':''; ?>>每页显示 <?php echo ($vo); ?> 条</option><?php endforeach; endif; ?>
+							</select>
+						</div>
+					</div>
+					<div class="pull-right"><div class="my-page"><?php echo ($page); ?></div></div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
+</form>
 <!-- E -->
-<!-- 弹窗 -->
-<div id="my-modal" class="modal fade" tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h3 class="smaller lighter blue no-margin">导入用户数据</h3>
-			</div>
-
-			<div class="modal-body">
-				
-			</div>
-
-			<div class="modal-footer">
-				<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
-					<i class="ace-icon fa fa-times"></i>
-					Close
-				</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div>
-
 
 								
 							</div><!-- /.col -->
@@ -803,23 +803,108 @@
 		<script type="text/javascript" src="/public/static/admin/js/main.js"></script>
 		
 		
+<script src="/public/static/components/moment/moment.min.js"></script>
+<script src="/public/static/components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script src="/public/static/components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="/public/static/components/bootstrap-daterangepicker/daterangepicker.min.js"></script>
 <script type="text/javascript">
-var _clickOne = true;
-$('#data-table .status span').on('click',function(){
-	var id = $(this).data('id');
-	if (id && _clickOne) {
-		_clickOne = false;
-		$.ajax({
-			url: "<?php echo U('setStatus');?>",
-			type: 'POST',
-			data: {"id": id},
-			dataype: 'json',
-			success: function(data) {
-				window.location.reload();
+	$('#my-table-tool input[name=pushtime]').daterangepicker({
+		'applyClass' : 'btn-sm btn-success',
+		'cancelClass' : 'btn-sm btn-default',
+		locale: {
+			format: 'MM-DD-YYYY',
+			separator: ' 至 ',
+			applyLabel: '确认',
+			cancelLabel: '取消',
+			daysOfWeek:["日","一","二","三","四","五","六"],
+			monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+		}
+	})
+	.prev().on(ace.click_event, function(){
+		$(this).next().focus();
+	});
+
+
+    jQuery(function ($) {
+        $('#birthday').datepicker({
+            format: 'yyyy-mm',
+            autoclose: true,
+            startView: 1, // 初始显示视图
+            maxViewMode: 3,//视图选择范围
+         	minViewMode:1,
+            forceParse: false,
+            todayBtn: 'linked',
+            language: 'zh-CN'
+        });
+
+        var active_class = 'active';
+        $('#data-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
+			var th_checked = this.checked;//checkbox inside "TH" table header
+			
+			$(this).closest('table').find('tbody > tr').each(function(){
+				var row = this;
+				if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
+				else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
+			});
+		});
+		
+		//select/deselect a row when the checkbox is checked/unchecked
+		$('#data-table').on('click', 'td input[type=checkbox]' , function(){
+			var $row = $(this).closest('tr');
+			if($row.is('.detail-row ')) return;
+			if(this.checked) $row.addClass(active_class);
+			else $row.removeClass(active_class);
+		});
+
+		// 批量删除
+		$('.my-footer-tool').on('click', '.alldel', function() {
+			// 获取已选择的数据
+			var inputs = $('td input[type=checkbox]:checked');
+			if (inputs.length && confirm('确定删除已选择的数据？')) {
+				var ids = new Array();
+				inputs.each(function(i,k) {
+					ids[i] = k.value;
+				});
+				ids = ids.join(',');
+				// 将数据传到后台处理
+				$.ajax({
+					url: "<?php echo U($isRecycle.'del',array('type'=>'alldel'));?>",
+					type: 'GET',
+					data: {"id": ids},
+					dataype: 'json',
+					success: function(data) {
+						if (data.status == 0) {
+							alert(data.info);
+						}
+						window.location.reload();
+					}
+				});
 			}
 		});
-	}
-});
+		// 设置对应的状态
+		$('#data-table .cursor-pointer span').on('click',function(){
+			var id = $(this).data('id');
+			var field = $(this).data('field');
+			if (id && field) {
+				$.ajax({
+					url: "<?php echo U('setStatus');?>",
+					type: 'POST',
+					data: {"id": id, "field": field},
+					dataype: 'json',
+					success: function(data) {
+						window.location.reload();
+					}
+				});
+			}
+		});
+
+
+		$("#gritter-remove").on(ace.click_event, function(){
+			$.gritter.removeAll();
+			return false;
+		});
+    });
+
 </script>
 
 
