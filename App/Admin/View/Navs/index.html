@@ -45,9 +45,9 @@
 						<foreach name="data" item="vo">
 							<tr>
 								<td hidden-320><?php echo str_repeat('&ensp;', ($vo['level']-1) * 3); ?>|__ <{$vo.title}></td>
-								<td class="center"><{$vo.url}></td>
-								<td class="center"><{$vo.keywords}></td>
-								<td class="center"><{$vo.description}></td>
+								<td class="center"><{$vo.url|cutStr=20}></td>
+								<td class="center"><{$vo.keywords|cutStr=20}></td>
+								<td class="center"><{$vo.description|cutStr=20}></td>
 								<td class="center"><{$vo.sort}></td>
 								<td class="center status">
 									<eq name="vo.status" value="1">
