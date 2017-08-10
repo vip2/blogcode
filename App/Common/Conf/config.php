@@ -33,10 +33,10 @@ return array(
     'MD5_KEY'                => '!@#$%^HG&*()FD_T$OTG', // 密钥
     'TMPL_PARSE_STRING'      => array(
         // ace 框架
-        '__ACE__'            => __ROOT__.'/public/static/ace/',
+        '__ACE__'            => __ROOT__.'/Public/static/ace/',
         // ace 扩展插件
-        '__COMPONENTS__'     => __ROOT__.'/public/static/components/',
-        '__ADMIN__'          => __ROOT__.'/public/static/admin/',
+        '__COMPONENTS__'     => __ROOT__.'/Public/static/components/',
+        '__ADMIN__'          => __ROOT__.'/Public/static/admin/',
     ),
     'LOAD_EXT_CONFIG'        => 'system', // 加载扩展配置文件
     'ROLE_NODE_CACHE_NAME'   => 'role_node_cache_name', // RABC权限缓存名称
