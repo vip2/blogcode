@@ -1,0 +1,271 @@
+<extend name="Layout:index" />
+<block name="pCss">
+<link rel="stylesheet" type="text/css" href="__COMPONENTS__bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
+<link rel="stylesheet" type="text/css" href="__COMPONENTS__bootstrap-daterangepicker/daterangepicker.min.css">
+<style type="text/css">
+	#my-table-tool .search-select{
+		margin-bottom: 2px;
+	}
+	#my-table-tool .search-btn{
+		margin-bottom: 3px;
+		line-height: .9em;
+	}
+	#data-table .td-img{
+		padding: 2px;
+	}
+	#data-table .cursor-pointer span{
+		cursor: pointer;
+	}
+</style>
+
+</block>
+<block name="content">
+<!-- S -->
+<form class="form-horizontal form-search" role="form" method="get" action="__SELF__">
+	<div class="my-table-tool" id="my-table-tool">
+		<select name="fledname" class="nav-search-input input-select input-sm search-select">
+			<option value="title" <eq name="Think.get.fledname" value="title">selected</eq>>标题</option>
+			<option value="catename" <eq name="Think.get.fledname" value="catename">selected</eq>>类型</option>
+			<option value="keywords" <eq name="Think.get.fledname" value="keywords">selected</eq>>关键词</option>
+		</select>
+		<input type="text" name="keyword" value="<{$Think.get.keyword|default=''}>" placeholder="请输入" class="nav-search-input input-sm" id="nav-search-input" autocomplete="off"">
+		&ensp;
+		发布时间
+		<input type="text" placeholder="发布时间" name="pushtime" value="<{$Think.get.pushtime}>" class="nav-search-input input-sm" id="field-pushtime" autocomplete="off" style="width: 180px;"">
+		<button type="submit" class="btn btn-inverse btn-white input-sm nav-search-input search-btn">
+			<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+			搜索
+		</button>
+	</div>
+	<div class="widget-container-col" id="widget-container-col-11">
+		<div class="widget-box widget-color-blue2" id="widget-box-content">
+			<div class="widget-body">
+				<!-- #section:custom/scrollbar -->
+				<div class="widget-main no-padding scrollable" data-size="125">
+					<!-- 表单 开始 -->
+					<table id="data-table" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th class="center detail-col">
+									<label class="pos-rel">
+										<input type="checkbox" class="ace">
+										<span class="lbl"></span>
+									</label>
+								</th>
+								<th class="center hidden-320">文章标题</th>
+								<th class="center">文章图片</th>
+								<th class="center">发布时间</th>
+								<th class="center">文章类型</th>
+								<th class="center">点击量</th>
+								<th class="center">浏览量</th>
+								<th class="center">是否显示</th>
+								<th class="center">是否热门</th>
+								<th class="center">是否置顶</th>
+								<th class="center">是否转载</th>
+								<eq name="isRecycle" value="is">
+									<th class="center">是否还原</th>
+								</eq>
+								<th class="center hidden-320">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<empty name="data">
+								<tr>
+									<td class="center" colspan ="100">
+										没有相关数据！
+									</td>
+								</tr>
+							<else /> 
+							<foreach name="data" item="vo">
+								<tr>
+									<td class="center">
+										<label class="pos-rel">
+											<input type="checkbox" class="ace" value="<{$vo.id}>">
+											<span class="lbl"></span>
+										</label>
+									</td>
+									<td class="center">
+										<a title="<{$vo.title}>" href="<{:U('info',array('id'=>$vo['id']))}>"><{$vo.title|cutStr=20}></a>
+									</td>
+									<td class="center td-img"><?php echo showImage($vo['minimg'], 60, 45);?></td>
+									<td class="center"><{$vo.pushtime}></td>
+									<td class="center"><{$vo.catename}></td>
+									<td class="center"><{$vo.clicknum}></td>
+									<td class="center"><{$vo.looknum}></td>
+									<td class="center cursor-pointer">
+										<span data-field="status" data-id="<{$vo.id}>" class="label label-sm 
+											<eq name="vo.status" value="1">label-success">显示<else/>label-grey">隐藏</eq>
+										</span>
+									</td>
+									<td class="center cursor-pointer">
+										<span data-field="ishot" data-id="<{$vo.id}>" class="label label-sm 
+											<eq name="vo.ishot" value="1">label-danger">热门<else/>label-success">正常</eq>
+										</span>
+									</td>
+									<td class="center cursor-pointer">
+										<span data-field="istop" data-id="<{$vo.id}>" class="label label-sm 
+											<eq name="vo.istop" value="1">label-warning">置顶<else/>label-success">正常</eq>
+										</span>
+									</td>
+									<td class="center cursor-pointer">
+										<span data-field="iscopy" data-id="<{$vo.id}>" class="label label-sm 
+											<eq name="vo.iscopy" value="1">label-grey">转载<else/>label-success">原创</eq>
+										</span>
+									</td>
+									<eq name="isRecycle" value="is">
+										<td class="center cursor-pointer">
+											<span data-field="deleted" data-id="<{$vo.id}>" class="label label-sm label-success">还原</span>
+										</td>
+									</eq>
+									<td class="center">
+										<div class="action-buttons">
+											<a class="blue info" title="查看详情" href="<{:U('info',array('id'=>$vo['id']))}>">
+												<i class="ace-icon fa fa-search-plus bigger-110"></i>
+											</a>
+											<a class="blue edit" title="修改" href="<{:U('edit',array('id'=>$vo['id']))}>">
+												<i class="ace-icon fa fa-pencil bigger-110"></i>
+											</a>
+											<a class="red del" title="删除" href="<{:U($isRecycle.'del',array('id'=>$vo['id']))}>">
+												<i class="ace-icon glyphicon glyphicon-remove bigger-110"></i>
+											</a>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+							</empty>
+						</tbody>
+					</table>
+					<!-- <table id="nodes-table"></table> -->
+					<!-- 表单 结束 -->
+				</div>
+				<!-- /section:custom/scrollbar -->
+				<div class="widget-toolbox padding-4 clearfix my-footer-tool">
+					<div class="pull-left">
+						<div class="btn-group">
+							<button type="button" class="btn btn-white btn-sm btn-danger btn-bold alldel">
+								<i class="ace-icon fa fa-trash-o bigger-120 orange"></i> 删除
+							</button>
+							<a href="<{:U('add')}>" class="btn btn-white btn-sm btn-primary btn-bold">
+								<i class="ace-icon fa fa-plus bigger-120 blue"></i> 新增
+							</a>
+							<select name="pnum" class="btn btn-white btn-sm btn-primary btn-bold select-num" onchange="$('.form-search').submit();">
+								<foreach name="Think.config.PAGE_LIST_NUM" item="vo">
+									<option value="<{$vo}>" <?php echo I('get.pnum', getPaegNum())==$vo?'selected':''; ?>>每页显示 <{$vo}> 条</option>
+								</foreach>
+							</select>
+						</div>
+					</div>
+					<div class="pull-right"><div class="my-page"><{$page}></div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- E -->
+</block>
+
+<block name="pnJs">
+<script src="__COMPONENTS__moment/moment.min.js"></script>
+<script src="__COMPONENTS__bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script src="__COMPONENTS__bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="__COMPONENTS__bootstrap-daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript">
+	$('#my-table-tool input[name=pushtime]').daterangepicker({
+		'applyClass' : 'btn-sm btn-success',
+		'cancelClass' : 'btn-sm btn-default',
+		locale: {
+			format: 'MM-DD-YYYY',
+			separator: ' 至 ',
+			applyLabel: '确认',
+			cancelLabel: '取消',
+			daysOfWeek:["日","一","二","三","四","五","六"],
+			monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+		}
+	})
+	.prev().on(ace.click_event, function(){
+		$(this).next().focus();
+	});
+
+
+    jQuery(function ($) {
+        $('#birthday').datepicker({
+            format: 'yyyy-mm',
+            autoclose: true,
+            startView: 1, // 初始显示视图
+            maxViewMode: 3,//视图选择范围
+         	minViewMode:1,
+            forceParse: false,
+            todayBtn: 'linked',
+            language: 'zh-CN'
+        });
+
+        var active_class = 'active';
+        $('#data-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
+			var th_checked = this.checked;//checkbox inside "TH" table header
+			
+			$(this).closest('table').find('tbody > tr').each(function(){
+				var row = this;
+				if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
+				else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
+			});
+		});
+		
+		//select/deselect a row when the checkbox is checked/unchecked
+		$('#data-table').on('click', 'td input[type=checkbox]' , function(){
+			var $row = $(this).closest('tr');
+			if($row.is('.detail-row ')) return;
+			if(this.checked) $row.addClass(active_class);
+			else $row.removeClass(active_class);
+		});
+
+		// 批量删除
+		$('.my-footer-tool').on('click', '.alldel', function() {
+			// 获取已选择的数据
+			var inputs = $('td input[type=checkbox]:checked');
+			if (inputs.length && confirm('确定删除已选择的数据？')) {
+				var ids = new Array();
+				inputs.each(function(i,k) {
+					ids[i] = k.value;
+				});
+				ids = ids.join(',');
+				// 将数据传到后台处理
+				$.ajax({
+					url: "<{:U($isRecycle.'del',array('type'=>'alldel'))}>",
+					type: 'GET',
+					data: {"id": ids},
+					dataype: 'json',
+					success: function(data) {
+						if (data.status == 0) {
+							alert(data.info);
+						}
+						window.location.reload();
+					}
+				});
+			}
+		});
+		// 设置对应的状态
+		$('#data-table .cursor-pointer span').on('click',function(){
+			var id = $(this).data('id');
+			var field = $(this).data('field');
+			if (id && field) {
+				$.ajax({
+					url: "<{:U('setStatus')}>",
+					type: 'POST',
+					data: {"id": id, "field": field},
+					dataype: 'json',
+					success: function(data) {
+						window.location.reload();
+					}
+				});
+			}
+		});
+
+
+		$("#gritter-remove").on(ace.click_event, function(){
+			$.gritter.removeAll();
+			return false;
+		});
+    });
+
+</script>
+</block>

@@ -1,0 +1,165 @@
+<extend name="Layout:index" />
+<block name="pCss"></block>
+<block name="min-nav-menu">
+	<div id="sidebar2" class="sidebar h-sidebar">
+	<ul class="nav nav-list" style="top: 0px;">
+		<foreach name="systemMenus" item="vo" key="k">
+			<li class="hover <eq name="onType" value="$k">active</eq>">
+				<a href="<{:U('System/index', array('type'=>$k))}>">
+					<span class="menu-text"> <{$vo}> </span>
+				</a>
+				<b class="arrow"></b>
+			</li>
+		</foreach>
+	</ul><!-- /.nav-list -->
+</div>
+</block>
+<block name="content">
+<form class="form-horizontal" method="POST" role="form" action="<{:U("System/$onType")}>">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-PAGE_DEFAULT_NUM"> 默认分页条数 </label>
+				<div class="col-sm-9 col-xs-7">
+					<select name="PAGE_DEFAULT_NUM" id="field-PAGE_DEFAULT_NUM" class="col-xs-10 col-sm-10 input-sm" placeholder="默认分页条数">
+						<foreach name="Think.config.PAGE_LIST_NUM" item="vo">
+							<option value="<{$vo}>" <eq name="data.PAGE_DEFAULT_NUM" value="$vo">selected</eq>>显示 <{$vo}> 条</option>
+						</foreach>
+					<!-- 	<option value="upper" <eq name="data.AUTO_CODE_CAPITAL" value="upper">selected</eq>>大写</option>
+						<option value="lower" <eq name="data.AUTO_CODE_CAPITAL" value="lower">selected</eq>>小写</option>
+						<option value="false" <eq name="data.AUTO_CODE_CAPITAL" value="">selected</eq>>不变</option> -->
+					</select>
+
+<!-- 					<input type="text" id="field-IMG_MAX_SIZE" name="IMG_MAX_SIZE" value="<{$data.IMG_MAX_SIZE}>" placeholder="默认分页条数" class="col-xs-10 col-sm-10 input-sm" /> -->
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>图片相关配置</b> </label>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-IMG_MAX_SIZE"> 图片最大上限 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-IMG_MAX_SIZE" name="IMG_MAX_SIZE" value="<{$data.IMG_MAX_SIZE}>" placeholder="图片最大上限" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-IMG_EXTS"> 图片上传格式 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-IMG_EXTS" name="IMG_EXTS" value="<{$data.IMG_EXTS}>" placeholder="图片上传格式,以|分割" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-IMG_ROOT_PATH"> 图片上传目录 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-IMG_ROOT_PATH" name="IMG_ROOT_PATH" value="<{$data.IMG_ROOT_PATH}>" placeholder="图片上传目录,以/结束" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>编号自动生成</b> </label>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_CODE_CAPITAL"> 编号自动转换 </label>
+				<div class="col-sm-9 col-xs-7">
+					<select name="AUTO_CODE_CAPITAL" id="field-AUTO_CODE_CAPITAL" class="col-xs-10 col-sm-10 input-sm" placeholder="编号自动转换">
+						<option value="upper" <eq name="data.AUTO_CODE_CAPITAL" value="upper">selected</eq>>大写</option>
+						<option value="lower" <eq name="data.AUTO_CODE_CAPITAL" value="lower">selected</eq>>小写</option>
+						<option value="false" <eq name="data.AUTO_CODE_CAPITAL" value="">selected</eq>>不变</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_CODE_LENGTH"> 编号生成长度 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-AUTO_CODE_LENGTH" name="AUTO_CODE_LENGTH" value="<{$data.AUTO_CODE_LENGTH}>" placeholder="编号生成长度" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_ADMIN_CODE"> 用户编号前缀 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-AUTO_ADMIN_CODE" name="AUTO_ADMIN_CODE" value="<{$data.AUTO_ADMIN_CODE}>" placeholder="用户编号前缀" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-AUTO_GROUP_CODE"> 部门编号前缀 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-AUTO_GROUP_CODE" name="AUTO_GROUP_CODE" value="<{$data.AUTO_GROUP_CODE}>" placeholder="部门编号前缀" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>验证码配置</b> </label>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_CODE_LENGTH"> 验证码长度 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_CODE_LENGTH" name="YZM_CODE_LENGTH" value="<{$data.YZM_CODE_LENGTH}>" placeholder="验证码长度" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_CODE_W"> 验证码宽度 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_CODE_W" name="YZM_CODE_W" value="<{$data.YZM_CODE_W}>" placeholder="验证码宽度" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_CODE_H"> 验证码高度 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_CODE_H" name="YZM_CODE_H" value="<{$data.YZM_CODE_H}>" placeholder="验证码高度" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_CODE_SET"> 验证码字符 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_CODE_SET" name="YZM_CODE_SET" value="<{$data.YZM_CODE_SET}>" placeholder="验证码字符,默认数字字母" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_FONT_SIZE"> 验证码字体大小 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input type="text" id="field-YZM_FONT_SIZE" name="YZM_FONT_SIZE" value="<{$data.YZM_FONT_SIZE}>" placeholder="验证码字体大小" class="col-xs-10 col-sm-10 input-sm" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_USE_NOISE"> 是否添加杂点 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input name="YZM_USE_NOISE" value="true" <eq name="data.YZM_USE_NOISE" value="true">checked</eq> id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+						<span class="lbl"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-YZM_USE_CURVE"> 使用混淆曲线 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input name="YZM_USE_CURVE" value="true" <eq name="data.YZM_USE_CURVE" value="true">checked</eq> id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+						<span class="lbl"></span>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-xs-12">
+			<div class="btn-group pull-left">
+				<button type="submit" class="btn btn-sm btn-success btn-bold">
+					<i class="ace-icon fa fa-save"></i>
+					保存
+				</button> 
+			</div>
+		</div>
+	</div>
+</form>
+</block>
+<block name="pnJs"></block>

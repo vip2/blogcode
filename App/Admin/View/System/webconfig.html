@@ -1,0 +1,85 @@
+<extend name="Layout:index" />
+<block name="pCss"></block>
+<block name="min-nav-menu">
+	<div id="sidebar2" class="sidebar h-sidebar">
+	<ul class="nav nav-list" style="top: 0px;">
+		<foreach name="systemMenus" item="vo" key="k">
+			<li class="hover <eq name="onType" value="$k">active</eq>">
+				<a href="<{:U('System/index', array('type'=>$k))}>">
+					<span class="menu-text"> <{$vo}> </span>
+				</a>
+				<b class="arrow"></b>
+			</li>
+		</foreach>
+	</ul><!-- /.nav-list -->
+</div>
+</block>
+<block name="content">
+<form class="form-horizontal" method="POST" role="form" action="<{:U("System/$onType")}>">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>网站相关设置</b> </label>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-web_title"> 网站名称 </label>
+				<div class="col-sm-9">
+					<input type="text" id="field-web_title" name="web_title" value="<{$data.ADMIN_TXT.web_title}>" placeholder="网站名称" class="col-xs-10 col-sm-10" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-web_icon"> 网站图标 </label>
+				<div class="col-sm-9">
+					<input type="text" id="field-web_icon" name="web_icon" value="<{$data.ADMIN_TXT.web_icon}>" placeholder="网站图标" class="col-xs-10 col-sm-10" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-web_keywords"> 关&ensp;键&ensp;词 </label>
+				<div class="col-sm-9">
+					<input type="text" id="field-web_keywords" name="web_keywords" value="<{$data.ADMIN_TXT.web_keywords}>" placeholder="关&ensp;键&ensp;词" class="col-xs-10 col-sm-10" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-web_description"> 网站描述 </label>
+				<div class="col-sm-9">
+					<textarea id="field-web_description" name="web_description" class="col-xs-10 col-sm-10" placeholder="网站描述"><{$data.ADMIN_TXT.web_keywords}></textarea>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>网站调试信息</b> </label>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-SHOW_PAGE_TRACE"> Trace信息 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input name="SHOW_PAGE_TRACE" value="true" <eq name="data.SHOW_PAGE_TRACE" value="true">checked</eq> id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+						<span class="lbl"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-TOKEN_ON"> 表单令牌验证 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input name="TOKEN_ON" value="true" <eq name="data.TOKEN_ON" value="true">checked</eq> id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+						<span class="lbl"></span>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-xs-12">
+			<div class="btn-group pull-left">
+				<button type="submit" class="btn btn-sm btn-success btn-bold">
+					<i class="ace-icon fa fa-save"></i>
+					保存
+				</button> 
+			</div>
+		</div>
+	</div>
+</form>
+</block>
+<block name="pnJs"></block>

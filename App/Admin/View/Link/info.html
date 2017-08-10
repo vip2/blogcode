@@ -1,0 +1,77 @@
+﻿<extend name="Layout:index" />
+<block name="pCss">
+<style type="text/css">
+	.status span{cursor: pointer;}
+</style>
+</block>
+<block name="content">
+<!-- S -->
+
+<div class="widget-container-col" id="widget-container-col-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-content">
+		<div class="widget-header">
+			<h6 class="widget-title">
+				<i class="menu-icon fa fa-list"></i>&ensp;<{$_page_title}>
+
+			</h6>
+			<div class="widget-toolbar">
+
+				<a href="javascript:void(0);" class="href-url" title="返回列表" onclick='location.href="<{:U('index')}>"' data-action="settings">
+					<i class="ace-icon fa fa-reply"></i>
+				</a>
+
+				<a href="javascript:void(0);" class="href-url" title="新增" onclick='location.href="<{:U('add')}>"' data-action="settings">
+					<i class="ace-icon fa fa-plus"></i>
+				</a>
+
+				<a href="javascript:void(0);" class="href-url" title="修改" onclick='location.href="<{:U('edit',array('id'=>$data['id']))}>"' data-action="settings">
+					<i class="ace-icon fa fa-pencil"></i>
+				</a>
+
+				<a href="#" data-action="fullscreen" class="orange2">
+					<i class="ace-icon fa fa-expand"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="widget-body">
+			<!-- #section:custom/scrollbar -->
+			<div class="widget-main no-padding scrollable" data-size="125">
+				<!-- 表单 开始 -->
+				<table id="data-table" class="table table-bordered">
+					<tr>
+						<th class="center">网站名称</th>
+						<td><{$data.title}></td>
+						<th rowspan="4" class="center" style="vertical-align: middle;">网站图片</th>
+						<td rowspan="4"><?php echo showImage($data['minimg'], '', '80%');?></td>
+					</tr>
+					<tr>
+						<th class="center">网站链接</th><td><{$data.url}></td>
+					</tr>
+					<tr>
+						<th class="center">点&ensp;击&ensp;量</th><td><{$data.clicknum}></td>
+					</tr>
+					<tr>
+						<th class="center">是否显示</th>
+						<td>
+							<span class="label label-sm <eq name="data.status" value="1">label-success">显示<else/>label-grey">隐藏</eq></span>
+						</td>
+					</tr>
+					<tr>
+						<th class="center">创&ensp;建&ensp;人</th><td><{$data.create_id|getAdminUser=1}></td>
+						<th class="center">修&ensp;改&ensp;人</th><td><{$data.update_id|getAdminUser=1}></td>
+					</tr>
+					<tr>
+						<th class="center">创建时间</th><td><{$data.create_time}></td>
+						<th class="center">修改时间</th><td><{$data.update_time}></td>
+					</tr>
+				</table>
+				<!-- 表单 结束 -->
+			</div>
+			<!-- /section:custom/scrollbar -->
+		</div>
+	</div>
+</div>
+
+<!-- E -->
+</block>

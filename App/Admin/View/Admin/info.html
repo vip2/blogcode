@@ -1,0 +1,130 @@
+<extend name="Layout:index" />
+<block name="pCss">
+<style type="text/css">
+	.status span{cursor: pointer;}
+</style>
+</block>
+<block name="content">
+<!-- S -->
+
+<div class="widget-container-col" id="widget-container-col-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-content">
+		<div class="widget-header">
+			<h6 class="widget-title">
+				<i class="menu-icon fa fa-list"></i>&ensp;<{$_page_title}>
+
+			</h6>
+			<div class="widget-toolbar">
+
+				<a href="javascript:void(0);" class="href-url" title="返回列表" onclick='location.href="<{:U('index')}>"' data-action="settings">
+					<i class="ace-icon fa fa-reply"></i>
+				</a>
+
+				<a href="javascript:void(0);" class="href-url" title="新增" onclick='location.href="<{:U('add')}>"' data-action="settings">
+					<i class="ace-icon fa fa-plus"></i>
+				</a>
+
+				<a href="javascript:void(0);" class="href-url" title="修改" onclick='location.href="<{:U('edit',array('id'=>$data['id']))}>"' data-action="settings">
+					<i class="ace-icon fa fa-pencil"></i>
+				</a>
+
+				<a href="#" data-action="fullscreen" class="orange2">
+					<i class="ace-icon fa fa-expand"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="widget-body">
+			<!-- #section:custom/scrollbar -->
+			<div class="widget-main no-padding scrollable" data-size="125">
+				<!-- 表单 开始 -->
+				<table id="data-table" class="table table-bordered table-hover">
+					<tr>
+						<th>用户名称</th><td><{$data.adminuser}></td>
+						<th>编&emsp;&emsp;号</th><td><{$data.adminno}></td>
+					</tr>
+					<tr>
+						<th>用户昵称</th><td><{$data.nickname}></td>
+						<th>邮&emsp;&emsp;箱</th><td><{$data.email}></td>
+					</tr>
+					<tr>
+						<th>基本工资</th><td><{$data.basepay}></td>
+						<th>手&emsp;&emsp;机</th><td><{$data.mobile}></td>
+					</tr>
+					<tr>
+						<th>积&emsp;&emsp;分</th><td><{$data.integral}></td>
+						<th>是否启用</th><td><eq name="data.status" value="1">启用<else /> 禁用</eq></td>
+					</tr>
+					<tr>
+						<th>所属部门</th><td><{$data.groupname}></td>
+						<th>所属角色</th>
+						<td>
+							<foreach name="data.roles" item="val">
+								<span class="label label-sm label-info"><{$val.title}></span>
+							</foreach>
+						</td>
+					</tr>
+			<!-- 		<tbody>
+						<foreach name="data" item="vo">
+							<tr>
+								<td class="center"><{$vo.adminno}></td>
+								<td class="center"><a title="<{$vo.adminuser}>" href="<{:U('info',array('id'=>$vo['id']))}>"><{$vo.adminuser}></a></td>
+								<td class="center"><a title="<{$vo.nickname}>" href="<{:U('info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
+								<td class="center"><{$vo.groupname}></td>
+								<td class="center"><{$vo.mobile}></td>
+								<td class="center"><{$vo.email}></td>
+								<td class="center status">
+									<eq name="vo.status" value="1">
+										<span class="label label-sm label-success" data-id="<{$vo.id}>">正常</span>
+									<else/>
+										<span class="label label-sm label-warning" data-id="<{$vo.id}>">禁用</span>
+									</eq>
+								</td>
+								<td class="center">
+									<div class="action-buttons">
+										<a class="blue info" title="查看详情" href="<{:U('info',array('id'=>$vo['id']))}>">
+											<i class="ace-icon fa fa-search-plus bigger-110"></i>
+										</a>
+										<a class="blue edit" title="修改" href="<{:U('edit',array('id'=>$vo['id']))}>">
+											<i class="ace-icon fa fa-pencil bigger-110"></i>
+										</a>
+										<a class="red del" title="删除" href="<{:U('del',array('id'=>$vo['id']))}>">
+											<i class="ace-icon glyphicon glyphicon-remove bigger-110"></i>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</foreach>
+					</tbody> -->
+				</table>
+				<!-- <table id="nodes-table"></table> -->
+				<!-- 表单 结束 -->
+			</div>
+			<!-- /section:custom/scrollbar -->
+		</div>
+	</div>
+</div>
+
+<!-- E -->
+</block>
+
+<block name="pnJs">
+<script type="text/javascript">
+var _clickOne = true;
+$('#data-table .status span').on('click',function(){
+	var id = $(this).data('id');
+	if (id && _clickOne) {
+		_clickOne = false;
+		$.ajax({
+			url: "<{:U('setStatus')}>",
+			type: 'POST',
+			data: {"id": id},
+			dataype: 'json',
+			success: function(data) {
+				window.location.reload();
+			}
+		});
+	}
+});
+</script>
+</block>

@@ -1,0 +1,28 @@
+<extend name="Layout:index" />
+<block name="pCss"></block>
+</block>
+<block name="content">
+<!-- 表格前筛选条 S -->
+<div class="table-nav">
+	<form class="form-search" method="POST" action="__SELF__">
+		<div class="input-group">
+			<span class="input-group-btn">
+				<select class="form-control" name="ddd">
+					<option value="请选择">请选择</option>
+					<option value="请选择">请选择</option>
+					<option value="请选择">请选择</option>
+				</select>
+			</span>
+			<input type="text" class="form-control search-query" placeholder="Type your query">
+			<span class="input-group-btn">
+				<button type="button" class="btn btn-inverse btn-white">
+					<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+					Search
+				</button>
+			</span>
+		</div>
+	</form>
+</div>	
+<!-- 表格前筛选条 E -->
+</block>
+<block name="pnJs"></block>

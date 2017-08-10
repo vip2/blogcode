@@ -1,0 +1,26 @@
+
+/*修改IEx中 下拉框箭头边框和背景样式*/
+select::-ms-expand { 
+	background: #FFF;
+	border-color: #FFF;
+}
+.select-num{
+	height: 2.2em;
+}
+/*分页样式 S*/
+.my-page div > *{
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	padding: 0.2rem 0.5rem;
+	border: 1px solid #337ab7;
+}
+.my-page .num,.my-page .current{
+	padding: 0.2rem 0rem;
+	width: 2em;
+}
+.my-page .current{
+	background: #337ab7;
+	color: #FFF;
+}
+/*分页样式 E*/

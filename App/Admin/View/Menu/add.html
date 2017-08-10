@@ -1,0 +1,115 @@
+<extend name="Layout:index" />
+<block name="content">
+<!-- S -->
+
+<div class="widget-container-col" id="widget-container-col-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-11">
+		<div class="widget-header">
+			<h6 class="widget-title">
+				<i class="menu-icon fa fa-user-plus"></i>&ensp;<{$_page_title}>
+			</h6>
+
+			<div class="widget-toolbar">
+				<a title="返回列表" href="#" onclick='location.href="<{:U('index')}>"' data-action="settings">
+					<i class="ace-icon fa fa-reply"></i>
+				</a>
+
+				<a href="#" data-action="fullscreen" class="orange2">
+					<i class="ace-icon fa fa-expand"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="widget-body">
+			<!-- 表单 开始 -->
+			<form class="form-horizontal" method="POST" role="form" action="__SELF__">
+			<!-- 主体 S -->
+			<div class="widget-main">
+				<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<notempty name="parentData" >
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="field-pid"> 上级菜单 </label>
+							<div class="col-sm-9">
+								<input type="text" id="field-pid" readonly placeholder="上级菜单" value="<{$parentData.title}>" class="col-xs-10 col-sm-10" />
+								<input type="hidden" name="pid" value="<{$parentData.id}>" />
+							</div>
+						</div>
+					</notempty>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="field-title"> 菜单名称 </label>
+						<div class="col-sm-9">
+							<input type="text" id="field-title" name="title" placeholder="菜单名称" class="col-xs-10 col-sm-10" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="field-icon"> 菜单图标 </label>
+						<div class="col-sm-9">
+							<input type="text" id="field-icon" value="fa fa-caret-right" name="icon" placeholder="菜单图标" class="col-xs-10 col-sm-10" />
+						</div>
+					</div>
+
+					<notempty name="menuUrl" >
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="field-url"> 菜单路径 </label>
+							<div class="col-sm-9">
+								<select name="url" id="field-url" class="col-xs-10 col-sm-10" placeholder="菜单路径">
+									<foreach name="menuUrl" item="vo" key="k">
+										<optgroup label="<{$k}>">
+											<foreach name="vo" item="v">
+												<option value="<{$v['url']}>"><{$v['title']}></option>
+											</foreach>
+										</optgroup>
+									</foreach>
+								</select>
+							</div>
+						</div>
+					</notempty>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="field-sort"> 菜单排序 </label>
+						<div class="col-sm-9">
+							<input type="text" id="field-sort" value="1" name="sort" placeholder="菜单排序" class="col-xs-10 col-sm-10" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="field-status"> 菜单状态 </label>
+						<div class="col-sm-9">
+							<input name="status" value="1" id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+								<span class="lbl"></span>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- 主体 E -->
+
+			<!-- 底部 S -->
+			<div class="widget-toolbox padding-8 clearfix">
+				<div class="btn-group pull-left">
+					<button type="submit" class="btn btn-sm btn-success btn-bold">
+					<!-- <button type="submit" class="btn btn-sm btn-success btn-bold" data-toggle="button"> -->
+						<i class="ace-icon fa fa-save"></i>
+						保存
+					</button> 
+				</div>
+
+				<div class="btn-group pull-right">
+					<button type="reset" value="Reset" class="btn btn-sm btn-danger btn-bold">
+						<i class="ace-icon fa fa-undo"></i>
+						重置
+					</button> 
+				</div>
+			</div>
+			<!-- 底部 E -->
+			</form>
+			<!-- 表单 结束 -->
+		</div>
+	</div>
+</div>
+
+<!-- E -->
+</block>

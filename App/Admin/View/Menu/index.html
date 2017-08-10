@@ -1,0 +1,113 @@
+<extend name="Layout:index" />
+<block name="pCss">
+<style type="text/css">
+	.status span{cursor: pointer;}
+	tr.menu-title,.table-hover > tbody > tr.menu-title:hover{background: rgba(198, 125, 11, 0.31);}
+</style>
+</block>
+<block name="content">
+<!-- S -->
+
+<div class="widget-container-col" id="widget-container-col-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-11">
+		<div class="widget-header">
+			<h6 class="widget-title">
+				<i class="menu-icon fa fa-list"></i>&ensp;<{$_page_title}>
+			</h6>
+
+			<div class="widget-toolbar">
+				<a href="javascript:void(0);" class="href-url" title="新增<{$nodes[$onType]}>" onclick='location.href="<{:U('add')}>"' data-action="settings">
+					<i class="ace-icon fa fa-plus"></i>
+				</a>
+
+				<a href="#" data-action="fullscreen" class="orange2">
+					<i class="ace-icon fa fa-expand"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="widget-body">
+			<!-- #section:custom/scrollbar -->
+			<div class="widget-main no-padding scrollable" data-size="125">
+				<!-- 表单 开始 -->
+				<table id="data-table" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th class="center detail-col">图标</th>
+							<th class="center hidden-320">菜单名称</th>
+							<th class="center">图标文本</th>
+							<th class="center">状态</th>
+							<th class="center">排序</th>
+							<th class="center hidden-320">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<foreach name="data" item="vo">
+							<tr <eq name="vo.level" value="1">class="menu-title"</eq>>
+								<td class="center">
+									<div class="action-buttons">
+										<a title="<{$vo.title}>"><i class="ace-icon <{$vo.icon}> bigger-110"></i></a>
+									</div>
+								</td>
+								<td><?php echo str_repeat('&emsp;', ($vo['level']-1) * 3); ?>&emsp;<i class="ace-icon <{$vo.icon}> bigger-110"></i> <{$vo.title}></td>
+								<td class="center"><{$vo.icon}></td>
+								<td class="center status">
+									<eq name="vo.status" value="1">
+										<span class="label label-sm label-success" data-id="<{$vo.id}>">正常</span>
+									<else/>
+										<span class="label label-sm label-warning" data-id="<{$vo.id}>">禁用</span>
+									</eq>
+								</td>
+								<td class="center"><{$vo.sort}></td>
+								<td class="center">
+									<div class="action-buttons">
+										<eq name="vo.level" value="1">
+											<a class="blue add" title="新增下级权限" href="<{:U('add',array('pid'=>$vo['id'],'level'=>$vo['level']+1))}>">
+												<i class="ace-icon fa fa-plus bigger-110"></i>
+											</a>
+										<else/>
+											&emsp;
+										</eq>
+										<a class="blue edit" title="修改" href="<{:U('edit',array('id'=>$vo['id']))}>">
+											<i class="ace-icon fa fa-pencil bigger-110"></i>
+										</a>
+										<a class="red del" title="删除" href="<{:U('del',array('id'=>$vo['id']))}>">
+											<i class="ace-icon glyphicon glyphicon-remove bigger-110"></i>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</foreach>
+					</tbody>
+				</table>
+				<!-- <table id="nodes-table"></table> -->
+				<!-- 表单 结束 -->
+			</div>
+			<!-- /section:custom/scrollbar -->
+		</div>
+	</div>
+</div>
+
+<!-- E -->
+</block>
+
+<block name="pnJs">
+<script type="text/javascript">
+var _clickOne = true;
+$('#data-table .status span').on('click',function(){
+	var id = $(this).data('id');
+	if (id && _clickOne) {
+		_clickOne = false;
+		$.ajax({
+			url: "<{:U('setStatus')}>",
+			type: 'POST',
+			data: {"id": id},
+			dataype: 'json',
+			success: function(data) {
+				window.location.reload();
+			}
+		});
+	}
+});
+</script>
+</block>

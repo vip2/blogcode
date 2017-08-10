@@ -1,0 +1,68 @@
+<extend name="Layout:index" />
+<block name="pCss"></block>
+<block name="min-nav-menu">
+	<div id="sidebar2" class="sidebar h-sidebar">
+	<ul class="nav nav-list" style="top: 0px;">
+		<foreach name="systemMenus" item="vo" key="k">
+			<li class="hover <eq name="onType" value="$k">active</eq>">
+				<a href="<{:U('System/index', array('type'=>$k))}>">
+					<span class="menu-text"> <{$vo}> </span>
+				</a>
+				<b class="arrow"></b>
+			</li>
+		</foreach>
+	</ul><!-- /.nav-list -->
+</div>
+</block>
+<block name="content">
+<form class="form-horizontal" method="POST" role="form" action="<{:U("System/$onType")}>">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-MAIL_ADDRESS"> 发件人Email </label>
+				<div class="col-sm-9">
+					<input type="text" id="field-MAIL_ADDRESS" name="MAIL_ADDRESS" value="<{$data.MAIL_ADDRESS}>" placeholder="发件人Email" class="col-xs-10 col-sm-10" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-MAIL_FROM"> 发件人姓名 </label>
+				<div class="col-sm-9">
+					<input type="text" id="field-MAIL_FROM" name="MAIL_FROM" value="<{$data.MAIL_FROM}>" placeholder="发件人姓名" class="col-xs-10 col-sm-10" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-MAIL_SMTP"> SMTP地址 </label>
+				<div class="col-sm-9">
+					<input type="text" id="field-MAIL_SMTP" name="MAIL_SMTP" value="<{$data.MAIL_SMTP}>" placeholder="SMTP地址" class="col-xs-10 col-sm-10" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-MAIL_LOGINNAME"> SMTP用户名 </label>
+				<div class="col-sm-9">
+					<input type="text" id="field-MAIL_LOGINNAME" name="MAIL_LOGINNAME" value="<{$data.MAIL_LOGINNAME}>" placeholder="SMTP用户名" class="col-xs-10 col-sm-10" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="field-MAIL_PASSWORD"> SMTP密码 </label>
+				<div class="col-sm-9">
+					<input type="text" id="field-MAIL_PASSWORD" name="MAIL_PASSWORD" value="<{$data.MAIL_PASSWORD}>" placeholder="SMTP密码" class="col-xs-10 col-sm-10" />
+				</div>
+			</div>
+
+		</div>
+		<div class="col-xs-12">
+			<div class="btn-group pull-left">
+				<button type="submit" class="btn btn-sm btn-success btn-bold">
+					<i class="ace-icon fa fa-save"></i>
+					保存
+				</button> 
+			</div>
+		</div>
+	</div>
+</form>
+</block>
+<block name="pnJs"></block>

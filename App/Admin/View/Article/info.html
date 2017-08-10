@@ -1,0 +1,112 @@
+﻿<extend name="Layout:index" />
+<block name="pCss">
+<style type="text/css">
+	.status span{cursor: pointer;}
+</style>
+</block>
+<block name="content">
+<!-- S -->
+
+<div class="widget-container-col" id="widget-container-col-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-content">
+		<div class="widget-header">
+			<h6 class="widget-title">
+				<i class="menu-icon fa fa-list"></i>&ensp;<{$_page_title}>
+
+			</h6>
+			<div class="widget-toolbar">
+
+				<a href="javascript:void(0);" class="href-url" title="返回列表" onclick='location.href="<{:U('index')}>"' data-action="settings">
+					<i class="ace-icon fa fa-reply"></i>
+				</a>
+
+				<a href="javascript:void(0);" class="href-url" title="新增" onclick='location.href="<{:U('add')}>"' data-action="settings">
+					<i class="ace-icon fa fa-plus"></i>
+				</a>
+
+				<a href="javascript:void(0);" class="href-url" title="修改" onclick='location.href="<{:U('edit',array('id'=>$data['id']))}>"' data-action="settings">
+					<i class="ace-icon fa fa-pencil"></i>
+				</a>
+
+				<a href="#" data-action="fullscreen" class="orange2">
+					<i class="ace-icon fa fa-expand"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="widget-body">
+			<!-- #section:custom/scrollbar -->
+			<div class="widget-main no-padding scrollable" data-size="125">
+				<!-- 表单 开始 -->
+				<table id="data-table" class="table table-bordered table-hover">
+					<tr>
+						<th class="center">文章标题</th>
+						<td><{$data.title}></td>
+						<th rowspan="2" class="center" style="vertical-align: middle;">文章图片</th>
+						<td rowspan="2"><?php echo showImage($data['minimg'], '', 60);?></td>
+					</tr>
+					<tr>
+						<th class="center">发布时间</th><td><{$data.pushtime}></td>
+					</tr>
+					<tr>
+						<th class="center">文章类型</th><td><{$data.catename}></td>
+						<th class="center">文章标签</th>
+						<td>
+							<?php foreach(explode(',',$data['tagname']) as $val): ?>
+								<span class="label label-sm label-success"><{$val}></span>
+							<?php endforeach; ?>
+						</td>
+					</tr>
+					<tr>
+						<th class="center">点&ensp;击&ensp;量</th><td><{$data.clicknum}></td>
+						<th class="center">浏&ensp;览&ensp;量</th><td><{$data.looknum}></td>
+					</tr>
+					<tr>
+						<th class="center">是否显示</th>
+						<td>
+							<span class="label label-sm <eq name="data.status" value="1">label-success">显示<else/>label-grey">隐藏</eq></span>
+						</td>
+						<th class="center">是否热门</th>
+						<td>
+							<span class="label label-sm <eq name="data.ishot" value="1">label-danger">热门<else/>label-success">正常</eq></span>
+						</td>
+					</tr>
+					<tr>
+						<th class="center">是否置顶</th>
+						<td>
+							<span class="label label-sm <eq name="data.istop" value="1">label-warning">置顶<else/>label-success">正常</eq></span>
+						</td>
+						<th class="center">是否转载</th>
+						<td>
+							<span class="label label-sm <eq name="data.iscopy" value="1">label-warning">转载<else/>label-success">原创</eq></span>
+						</td>
+					</tr>
+					<tr>
+						<th class="center">关&ensp;键&ensp;词</th>
+						<td colspan="3"><{$data.keywords}></td>
+					</tr>
+					<tr>
+						<th class="center">创&ensp;建&ensp;人</th><td><{$data.create_id|getAdminUser=1}></td>
+						<th class="center">修&ensp;改&ensp;人</th><td><{$data.update_id|getAdminUser=1}></td>
+					</tr>
+					<tr>
+						<th class="center">创建时间</th><td><{$data.create_time}></td>
+						<th class="center">修改时间</th><td><{$data.update_time}></td>
+					</tr>
+					<tr>
+						<th class="center">文章内容</th>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td colspan="4"><{$data.content|htmlspecialchars_decode}></td>
+					</tr>
+				</table>
+				<!-- 表单 结束 -->
+			</div>
+			<!-- /section:custom/scrollbar -->
+		</div>
+	</div>
+</div>
+
+<!-- E -->
+</block>

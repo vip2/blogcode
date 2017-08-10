@@ -1,0 +1,337 @@
+<extend name="Layout:index" />
+<block name="pCss">
+<link rel="stylesheet" type="text/css" href="__COMPONENTS__bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
+<style type="text/css">
+	#my-table-tool .search-select{
+		margin-bottom: 2px;
+	}
+	#my-table-tool .search-btn{
+		margin-bottom: 3px;
+		line-height: .9em;
+	}
+
+	/*表格*/
+	#dynamic-table_wrapper .row:nth-of-type(odd){
+		display: none;
+	}
+	#dynamic-table_wrapper .row:nth-child(2) > div{
+		padding: 0;
+	}
+	#dynamic-table .table-head th{
+		padding: 2px;
+	}
+	#dynamic-table .table-head tr .th-w{
+		width: 3em  !important;
+		color: #ccc;
+	}
+</style>
+
+</block>
+<block name="content">
+<!-- S -->
+<form class="form-horizontal form-search" role="form" method="get" action="__SELF__">
+	<div class="my-table-tool" id="my-table-tool">
+		<select name="fledname" class="nav-search-input input-select input-sm search-select">
+			<option value="全部" <eq name="Think.get.fledname" value="全部">selected</eq>>全部</option>
+			<option value="用户名称" <eq name="Think.get.fledname" value="用户名称">selected</eq>>用户名称</option>
+			<option value="用户昵称" <eq name="Think.get.fledname" value="用户昵称">selected</eq>>用户昵称</option>
+		</select>
+		<input type="text" name="keyword" value="<{$Think.get.keyword|default=''}>" placeholder="全部时搜索用户名称/昵称" class="nav-search-input input-sm" id="nav-search-input" autocomplete="off">
+		&ensp;
+		考勤月份
+		<input type="text" placeholder="考勤月份" name="thismonth" value="<{$Think.get.thismonth}>" class="nav-search-input input-sm" id="birthday" autocomplete="off" data-date-format="yyyy-mm">
+		<button type="submit" class="btn btn-inverse btn-white input-sm nav-search-input search-btn">
+			<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+			搜索
+		</button>
+	</div>
+	<div class="widget-container-col" id="widget-container-col-11">
+		<div class="widget-box widget-color-blue2" id="widget-box-content">
+			<div class="widget-body">
+				<!-- #section:custom/scrollbar -->
+				<div class="widget-main no-padding scrollable" data-size="125">
+					<!-- 表单 开始 -->
+					<!-- <table id="data-table" class="table table-striped table-bordered display nowrap">
+						<thead>
+							<tr>
+								<th class="center" rowspan="2">序号</th>
+								<th class="center" rowspan="2">部门</th>
+								<th class="center hidden-320" rowspan="2">用户昵称</th>
+								<foreach name="weeksData" item="vo" key='k'>
+									<th class="center hidden-320"><{$vo.day}></th>
+								</foreach>
+							</tr>
+							<tr>
+								<foreach name="weeksData" item="vo" key='k'>
+									<th class="center hidden-320"><{$vo.week}></th>
+								</foreach>
+							</tr>
+						</thead>
+						<tbody>
+							<empty name="data">
+								<tr>
+									<td class="center" colspan ="100">
+										没有相关数据！
+									</td>
+								</tr>
+							<else /> 
+							<foreach name="data" item="vo" key='k'>
+								<tr>
+									<td class="center"><{$k+1}></td>
+									<td class="center"><{$vo.groupname}></td>
+									<td class="center"><a title="<{$vo.nickname}>" href="<{:U('Admin/info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
+									<td class="center"><{$vo.thismonth}></td>
+									<td class="center"><{$vo.monthpaid}></td>
+									<td class="center"><{$vo.paiddays}></td>
+									<td class="center"><{$vo.ycqts}></td>
+									<td class="center"><{$vo.holidays}></td>
+									<td class="center"><{$vo.paid_holidays}></td>
+									<td class="center"><{$vo.maternity_leave}></td>
+									<td class="center"><{$vo.personal_leave}></td>
+									<td class="center"><{$vo.sickdays}></td>
+									<td class="center"><{$vo.absenteeism}></td>
+									<td class="center"><{$vo.nonentry_quit}></td>
+									<td class="center"><{$vo.late_leaveearly}></td>
+									<td class="center">
+										<div class="action-buttons">
+											<a class="blue info" title="查看详情" href="<{:U('info',array('id'=>$vo['id']))}>">
+												<i class="ace-icon fa fa-search-plus bigger-110"></i>
+											</a>
+											<a class="blue edit" title="修改" href="<{:U('edit',array('id'=>$vo['id']))}>">
+												<i class="ace-icon fa fa-pencil bigger-110"></i>
+											</a>
+											<a class="red del" title="删除" href="<{:U('del',array('id'=>$vo['id']))}>">
+												<i class="ace-icon glyphicon glyphicon-remove bigger-110"></i>
+											</a>
+										</div>
+									</td>
+								</tr>
+							</foreach>
+							</empty>
+						</tbody>
+					</table> -->
+					<!-- <table id="nodes-table"></table> -->
+					<!-- 表单 结束 -->
+
+					<!-- new -->
+
+					<table id="dynamic-table" class="table table-bordered">
+						<thead>
+							<tr class="table-head">
+								<th class="center detail-col" rowspan="2">序号</th>
+								<th class="center" rowspan="2">部门</th>
+								<th style="width: 60px;" class="center hidden-320" rowspan="2">用户昵称</th>
+								<th class="center hidden-320" rowspan="2">用户昵称</th>
+								<th class="center hidden-320" rowspan="2">用户昵称</th>
+								<th class="center hidden-320" rowspan="2">用户昵称</th>
+								<th class="center hidden-320" rowspan="2">用户昵称</th>
+								<foreach name="weeksData" item="vo" key='k'>
+									<th style="color: #333;width: 3em;font-size: .875rem;" class="center th-w"><{$vo.day}></th>
+								</foreach>
+							</tr>
+							<tr class="table-head">
+								<foreach name="weeksData" item="vo" key='k'>
+									<th style="color: #333;width: 3em;font-size: .875rem;" class="center th-w"><{$vo.week}></th>
+								</foreach>
+							</tr>
+						</thead>
+
+						<tbody>
+							<foreach name="data" item="vo" key='k'>
+								<tr>
+									<td class="center"><{$k+1}></td>
+									<td class="center"><{$vo.groupname}></td>
+									<td class="center"><a title="<{$vo.nickname}>" href="<{:U('Admin/info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
+									<td class="center"><a title="<{$vo.nickname}>" href="<{:U('Admin/info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
+									<td class="center"><a title="<{$vo.nickname}>" href="<{:U('Admin/info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
+									<td class="center"><a title="<{$vo.nickname}>" href="<{:U('Admin/info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
+									<td class="center"><a title="<{$vo.nickname}>" href="<{:U('Admin/info',array('id'=>$vo['id']))}>"><{$vo.nickname}></a></td>
+									<foreach name="weeksData" item="vo" key='k'>
+										<td class="center"><{$vo.thismonth}></td>
+									</foreach>
+								</tr>
+							</foreach>
+						</tbody>
+					</table>
+
+					<!-- new -->
+				</div>
+				<!-- /section:custom/scrollbar -->
+			<!-- 	<div class="widget-toolbox padding-4 clearfix my-footer-tool">
+					<div class="pull-left">
+						<div class="btn-group">
+							<button type="button" class="btn btn-white btn-sm btn-danger btn-bold alldel">
+								<i class="ace-icon fa fa-trash-o bigger-120 orange"></i> 删除
+							</button>
+							<a href="<{:U('add')}>" class="btn btn-white btn-sm btn-primary btn-bold">
+								<i class="ace-icon fa fa-plus bigger-120 blue"></i> 新增
+							</a>
+							<button  type="button" class="btn btn-white btn-sm btn-primary btn-bold allemail">
+								<i class="ace-icon fa fa-envelope-o bigger-120 blue"></i> 邮件
+							</button>
+							<a href="<{:U('Fileexcel/step1', array('type'=>CONTROLLER_NAME))}>" class="btn btn-white btn-sm btn-primary btn-bold">
+								<i class="ace-icon fa fa-cloud-upload bigger-120 blue"></i> 导入
+							</a>
+							<select name="pnum" class="btn btn-white btn-sm btn-primary btn-bold select-num" onchange="$('.form-search').submit();">
+								<foreach name="Think.config.PAGE_LIST_NUM" item="vo">
+									<option value="<{$vo}>" <?php echo I('get.pnum', getPaegNum())==$vo?'selected':''; ?>>每页显示 <{$vo}> 条</option>
+								</foreach>
+							</select>
+						</div>
+					</div>
+					<div class="pull-right"><div class="my-page"><{$page}></div></div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</form>
+<!-- E -->
+</block>
+
+<block name="pnJs">
+<script src="__COMPONENTS__bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script src="__COMPONENTS__bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="__COMPONENTS__datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="__COMPONENTS__datatables/media/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('#birthday').datepicker({
+            format: 'yyyy-mm',
+            autoclose: true,
+            startView: 1, // 初始显示视图
+            maxViewMode: 3,//视图选择范围
+         	minViewMode:1,
+            forceParse: false,
+            todayBtn: 'linked',
+            language: 'zh-CN'
+        });
+
+        var active_class = 'active';
+        $('#data-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
+			var th_checked = this.checked;//checkbox inside "TH" table header
+			
+			$(this).closest('table').find('tbody > tr').each(function(){
+				var row = this;
+				if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
+				else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
+			});
+		});
+		
+		//select/deselect a row when the checkbox is checked/unchecked
+		$('#data-table').on('click', 'td input[type=checkbox]' , function(){
+			var $row = $(this).closest('tr');
+			if($row.is('.detail-row ')) return;
+			if(this.checked) $row.addClass(active_class);
+			else $row.removeClass(active_class);
+		});
+
+		// 批量删除
+		$('.my-footer-tool').on('click', '.alldel', function() {
+			// 获取已选择的数据
+			var inputs = $('td input[type=checkbox]:checked');
+			if (inputs.length && confirm('确定删除已选择的数据？')) {
+				var ids = new Array();
+				inputs.each(function(i,k) {
+					ids[i] = k.value;
+				});
+				ids = ids.join(',');
+				// 将数据传到后台处理
+				$.ajax({
+					url: "<{:U('del',array('type'=>'alldel'))}>",
+					type: 'GET',
+					data: {"id": ids},
+					dataype: 'json',
+					success: function(data) {
+						if (data.status == 0) {
+							alert(data.info);
+						}
+						window.location.reload();
+					}
+				});
+			}
+		})
+		// 批量发送工资邮件
+		.on('click', '.allemail', function() {
+			// 获取已选择的数据
+			var inputs = $('td input[type=checkbox]:checked');
+			if (inputs.length && confirm('确定发送工资邮件？')) {
+				var ids = new Array();
+				inputs.each(function(i,k) {
+					ids[i] = k.value;
+				});
+				var showId = $.gritter.add({
+					title: '<i class="ace-icon fa fa-spinner fa-spin orange bigger-175"> </i>  正在发送邮件',
+					class_name: 'gritter-info gritter-light',
+					sticky: true,
+				});
+				// 将数据传到后台处理
+				$.ajax({
+					url: "<{:U('sendsalary')}>",
+					type: 'POST',
+					data: {"id": ids},
+					dataype: 'json',
+					success: function(data) {
+						$.gritter.remove(showId);
+						data = eval("("+data+")");
+						$.gritter.add({
+							title: '邮件发送完成！',
+							text: '发送成功（'+data.success+'）封邮件!\r\n发送失败（'+data.error+'）封邮件!',
+							class_name: 'gritter-success gritter-light'
+						});
+					}
+				});
+			}
+		});
+
+		$("#gritter-remove").on(ace.click_event, function(){
+			$.gritter.removeAll();
+			return false;
+		});
+
+
+		// 新的table
+		var myTable = 
+		$('#dynamic-table').DataTable( {
+        	// "scrollX": true,
+        	// "sScrollY": "200px",
+        	"sScrollX": "100%",
+        	"paging":   false,
+        	"ordering": false,
+        	"info":     false,
+        	"searching":false,
+        	bLengthChange: false,
+			bAutoWidth: false,
+			// "aoColumns": [
+			//   { "bSortable": false },
+			//   null, null,null, null, null,
+			//   { "bSortable": false }
+			// ],
+			// "aaSorting": [],
+			
+			
+			//"bProcessing": true,
+	        //"bServerSide": true,
+	        //"sAjaxSource": "http://127.0.0.1/table.php"	,
+	
+			//,
+			//"sScrollY": "200px",
+			//"bPaginate": false,
+	
+			//"sScrollX": "100%",
+			//"sScrollXInner": "120%",
+			//"bScrollCollapse": true,
+			//Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
+			//you may want to wrap the table inside a "div.dataTables_borderWrap" element
+	
+			// "iDisplayLength": 50
+	
+	
+			// select: {
+			// 	style: 'multi'
+			// }
+	    } );
+
+    });
+
+</script>
+</block>

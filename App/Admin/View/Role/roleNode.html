@@ -1,0 +1,151 @@
+<extend name="Layout:index" />
+<block name="pCss">
+<style type="text/css">
+	.node-role .widget-header{
+		height: 2.8rem;
+		min-height: 2.8rem;
+	}
+	.node-role .widget-title{
+		line-height: 2.8rem;
+	}
+	.node-role .widget-title label{
+		line-height: 2rem;
+		margin: 0;
+	}
+	.node-role .widget-main label{
+		margin: 0.5rem 1rem 0.5rem 0.7rem;
+	}
+	.node-role .node-title{
+		display: inline-block;
+		background: rgba(111, 179, 224, 0.16);
+		width: 12rem;
+	}
+</style>
+</block>
+<block name="content">
+<!-- S -->
+
+<div class="widget-container-col" id="widget-container-col-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-11">
+		<div class="widget-header">
+			<h6 class="widget-title">
+				<i class="menu-icon fa fa-user-plus"></i>&ensp;<{$_page_title}> - <{$roleInfo.title}>
+			</h6>
+
+			<div class="widget-toolbar">
+				<a title="返回列表" href="#" onclick='location.href="<{:U('index')}>"' data-action="settings">
+					<i class="ace-icon fa fa-reply"></i>
+				</a>
+
+				<a href="#" data-action="fullscreen" class="orange2">
+					<i class="ace-icon fa fa-expand"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="widget-body">
+			<!-- 表单 开始 -->
+			<form class="form-horizontal" method="POST" role="form" action="__SELF__">
+			<!-- 主体 S -->
+			<div class="widget-main">
+				<div class="row">
+				<div class="col-xs-12 col-sm-12">
+					<foreach name="allNode" item="vo" key="k" >
+						<eq name="vo.pid" value="0">
+							<div class="widget-box ui-sortable-handle node-role">
+								<div class="widget-header">
+									<h5 class="widget-title smaller">
+								   		<label>
+											<input value="<{$vo.id}>" <eq name="vo.status" value="0">disabled</eq> <in name="vo.id" value="$useNode.node_id">checked</in> name="node_id[]" node="<{$vo.id}>" type="checkbox" class="ace" data-level="<{$vo.id}>">
+											<span class="lbl"> <{$vo.title}></span>
+										</label>
+									</h5>
+								</div>
+
+								<div class="widget-body">
+									<div class="widget-main padding-6">
+										<foreach name="allNode" item="voo" key="kk" >
+											<eq name="voo.pid" value="$vo.id">
+												<div>
+													<span class="node-title">
+												   		<label>
+															<input value="<{$voo.id}>" <eq name="voo.status" value="0">disabled</eq> <in name="voo.id" value="$useNode.node_id">checked</in> name="node_id[]" node="<{$vo.id}>-<{$voo.id}>" type="checkbox" class="ace" data-level="<{$vo.id}>-<{$voo.id}>">
+															<span class="lbl"> <{$voo.title}></span>
+														</label>
+													</span>
+													<span class="node-list">
+														<foreach name="allNode" item="vooo" key="kkk" >
+															<eq name="vooo.pid" value="$voo.id">
+														   		<label>
+																	<input value="<{$vooo.id}>" <eq name="vooo.status" value="0">disabled</eq> <in name="vooo.id" value="$useNode.node_id">checked</in> name="node_id[]" node="<{$vo.id}>-<{$voo.id}>-<{$vooo.id}>" type="checkbox" class="ace" data-level="<{$vo.id}>-<{$voo.id}>-<{$vooo.id}>">
+																	<span class="lbl"> <{$vooo.title}></span>
+																</label>
+																<?php unset($allNode[$kkk]);?>
+															</eq>
+														</foreach>
+													</span>
+												</div>
+												<?php unset($allNode[$kk]);?>
+											</eq>
+										</foreach>
+									</div>
+								</div>
+							</div>
+							<?php unset($allNode[$k]);?>
+						</eq>
+					</foreach>
+				</div>
+				</div>
+			</div>
+			<!-- 主体 E -->
+
+			<!-- 底部 S -->
+			<div class="widget-toolbox padding-8 clearfix">
+				<div class="btn-group pull-left">
+					<button type="submit" class="btn btn-sm btn-success btn-bold">
+					<!-- <button type="submit" class="btn btn-sm btn-success btn-bold" data-toggle="button"> -->
+						<i class="ace-icon fa fa-save"></i>
+						保存
+					</button> 
+				</div>
+
+				<div class="btn-group pull-right">
+					<button type="reset" value="Reset" class="btn btn-sm btn-danger btn-bold">
+						<i class="ace-icon fa fa-undo"></i>
+						重置
+					</button> 
+				</div>
+			</div>
+			<!-- 底部 E -->
+			<input type="hidden" name="role_id" value="<{$roleInfo.id}>">
+			</form>
+			<!-- 表单 结束 -->
+		</div>
+	</div>
+</div>
+
+<!-- E -->
+</block>
+
+<block name="pnJs">
+<script type="text/javascript">
+$('label input.ace').on('click', function() {
+	var level = $(this).data('level').toString();
+	if (this.checked) {
+		// 添加上级节点
+		var level = level.split('-');
+		if (level.length > 1) {
+			for (var i = 1; i <= level.length; i++) {
+				// 移除数组最后一个元素
+				level.pop()
+				// 获取元素的标记
+				var input = $('label input.ace[node='+level.join('-')+']').prop('checked', true);
+			}
+		}
+	} else {
+		// 取消下级节点
+		$('label input.ace[node^='+level+']').prop('checked', false);
+	}
+});
+</script>
+</block>

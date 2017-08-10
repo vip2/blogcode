@@ -1,0 +1,89 @@
+<extend name="Layout:index" />
+<block name="content">
+<!-- S -->
+
+<div class="widget-container-col" id="widget-container-col-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-11">
+		<div class="widget-header">
+			<h6 class="widget-title">
+				<i class="menu-icon fa fa-user-plus"></i>&ensp;<{$_page_title}>
+			</h6>
+
+			<div class="widget-toolbar">
+				<a title="返回列表" href="#" onclick='location.href="<{:U('index')}>"' data-action="settings">
+					<i class="ace-icon fa fa-reply"></i>
+				</a>
+
+				<a href="#" data-action="fullscreen" class="orange2">
+					<i class="ace-icon fa fa-expand"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="widget-body">
+			<!-- 表单 开始 -->
+			<form class="form-horizontal" method="POST" role="form" action="__SELF__">
+			<!-- 主体 S -->
+			<div class="widget-main">
+				<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="field-title"> 角色名称 </label>
+						<div class="col-sm-9">
+							<input type="text" id="field-title" name="title" value="<{$data.title}>" placeholder="角色名称" class="col-xs-10 col-sm-10" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="field-remark"> 角色描述 </label>
+						<div class="col-sm-9">
+							<input type="text" id="field-remark" name="remark" value="<{$data.remark}>" placeholder="角色描述" class="col-xs-10 col-sm-10" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="field-sort"> 角色排序 </label>
+						<div class="col-sm-9">
+							<input type="text" id="field-sort" name="sort" value="<{$data.sort}>" placeholder="角色排序" class="col-xs-10 col-sm-10" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="field-status"> 角色状态 </label>
+						<div class="col-sm-9">
+							<input name="status" value="1" <eq name="data.status" value="1">checked</eq> id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+								<span class="lbl"></span>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- 主体 E -->
+
+			<!-- 底部 S -->
+			<div class="widget-toolbox padding-8 clearfix">
+				<div class="btn-group pull-left">
+					<button type="submit" class="btn btn-sm btn-success btn-bold">
+					<!-- <button type="submit" class="btn btn-sm btn-success btn-bold" data-toggle="button"> -->
+						<i class="ace-icon fa fa-save"></i>
+						保存
+					</button> 
+				</div>
+
+				<div class="btn-group pull-right">
+					<button type="reset" value="Reset" class="btn btn-sm btn-danger btn-bold">
+						<i class="ace-icon fa fa-undo"></i>
+						重置
+					</button> 
+				</div>
+			</div>
+			<!-- 底部 E -->
+			<input type="hidden" name="id" value="<{$data.id}>">
+			</form>
+			<!-- 表单 结束 -->
+		</div>
+	</div>
+</div>
+
+<!-- E -->
+</block>

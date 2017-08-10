@@ -1,0 +1,21 @@
+<extend name="Layout:index" />
+<block name="pCss"></block>
+<block name="min-nav-menu">
+	<div id="sidebar2" class="sidebar h-sidebar">
+	<ul class="nav nav-list" style="top: 0px;">
+		<foreach name="systemMenus" item="vo" key="k">
+			<li class="hover <eq name="onType" value="$k">active</eq>">
+				<a href="<{:U('System/index', array('type'=>$k))}>">
+					<span class="menu-text"> <{$vo}> </span>
+				</a>
+
+				<b class="arrow"></b>
+			</li>
+		</foreach>
+	</ul><!-- /.nav-list -->
+</div>
+</block>
+<block name="content">
+	
+</block>
+<block name="pnJs"></block>

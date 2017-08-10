@@ -1,0 +1,145 @@
+<extend name="Layout:index" />
+<block name="pCss">
+</block>
+<block name="content">
+<!-- S -->
+
+<div class="widget-container-col" id="widget-container-col-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-11">
+		<div class="widget-header">
+			<h6 class="widget-title">
+				<i class="menu-icon fa fa-user-plus"></i>&ensp;<{$_page_title}>
+			</h6>
+
+			<div class="widget-toolbar">
+				<a title="返回列表" href="#" onclick='location.href="<{:U('index')}>"' data-action="settings">
+					<i class="ace-icon fa fa-reply"></i>
+				</a>
+
+				<a href="#" data-action="fullscreen" class="orange2">
+					<i class="ace-icon fa fa-expand"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="widget-body">
+			<!-- 表单 开始 -->
+			<form class="form-horizontal" method="POST" role="form" action="<{:U('step3')}>" enctype="multipart/form-data">
+			<!-- 主体 S -->
+			<div class="widget-main">
+				<div class="row">
+				<div class="col-xs-12 col-sm-12">
+
+					<div id="fuelux-wizard-container" class="no-steps-container">
+						<div>
+							<ul class="steps" style="margin-left: 0">
+								<li data-step="1" class="active">
+									<span class="step">1</span>
+									<span class="title">选择导入文件</span>
+								</li>
+
+								<li data-step="2" class="active">
+									<span class="step">2</span>
+									<span class="title">设置字段</span>
+								</li>
+
+								<li data-step="3">
+									<span class="step">3</span>
+									<span class="title">导入信息</span>
+								</li>
+							</ul>
+						</div>
+
+						<hr>
+
+						<div class="step-content pos-rel">
+							<table class="table table-bordered">
+								<tr>
+									<th class="center">字段名称</th>
+									<eq name="isHeader" value="1">
+										<th class="center bg-info hidden-320">列表标题</th>
+									</eq>
+									<th class="center">列1</th>
+									<th class="center">列2</th>
+								</tr>
+								<for start="0" end="$fornum">
+									<tr>
+										<td class="center hidden-320">
+											<select name="fieldcol[<{$demoData[1][$i]['col']}>]" onchange="checkVal(this);" class="fields-select">
+												<option value="">选择对应字段</option>
+												<foreach name="cols" item="vo">
+													<option value="<{$vo.colname}>" <eq name="vo.labelname" value="$demoData[1][$i]['value']">selected</eq>><{$vo.labelname}></option>
+												</foreach>
+											</select>
+										</td>
+										<td class="center hidden-320 <eq name="isHeader" value="1">bg-info</eq>"><{$demoData[1][$i]['value']}></td>
+										<td class="center"><{$demoData[2][$i]['value']}></td>
+										<eq name="isHeader" value="1">
+											<td class="center"><{$demoData[3][$i]['value']}></td>
+										</eq>
+									</tr>
+								</for>
+							</table>
+						</div>
+					</div>
+
+
+				</div>
+				</div>
+			</div>
+			<!-- 主体 E -->
+			<input type="hidden" name="filekey" value="<{$filekey}>">
+			<!-- 底部 S -->
+			<div class="widget-toolbox padding-8 clearfix">
+				<div class="btn-group pull-left">
+					<button type="button" class="btn btn-sm btn-success btn-bold" onclick="javascript:history.go(-1);">
+						<i class="ace-icon fa fa-arrow-left"></i>上一步
+					</button> 
+				</div>
+
+				<div class="btn-group pull-right">
+					<button type="submit" class="btn btn-sm btn-success btn-bold">
+						下一步 <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+					</button> 
+				</div>
+			</div>
+			<!-- 底部 E -->
+			</form>
+			<!-- 表单 结束 -->
+		</div>
+	</div>
+</div>
+
+<!-- E -->
+</block>
+
+<block name="pnJs">
+<script type="text/javascript">
+function checkVal(e) {
+	var vals = e.value;
+	var selects = $('.fields-select');
+	if (selects.length) {
+		var num = 0;
+		selects.each(function(i, k) {
+			var thisVal = $(k);
+			if (thisVal.val() != '' && thisVal[0]['name'] != e.name) {
+				if (thisVal.val() == vals) {
+					if (num == 0) {
+						num++;
+					} else {
+						thisVal.val('');
+					}
+				}
+			}
+			
+		});
+		if (num) {
+			alert("该字段已选择,请重选！");
+			e.value = '';
+		}
+	}
+	// p(e.name);
+	// p(selects);
+}
+</script>
+</block>
