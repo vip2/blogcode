@@ -1,8 +1,8 @@
 <?php
 namespace Index\Controller;
 use Think\Controller;
-class IndexController extends Controller {
+class IndexController extends BaseController {
     public function index(){
-        $this->show('this Index index','utf-8');
+        $this->display();
     }
 }

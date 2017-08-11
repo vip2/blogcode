@@ -37,6 +37,7 @@ return array(
         // ace 扩展插件
         '__COMPONENTS__'     => __ROOT__.'/Public/static/components/',
         '__ADMIN__'          => __ROOT__.'/Public/static/admin/',
+        '__INDEX__'          => __ROOT__.'/Public/static/index/',
     ),
     'LOAD_EXT_CONFIG'        => 'system', // 加载扩展配置文件
     'ROLE_NODE_CACHE_NAME'   => 'role_node_cache_name', // RABC权限缓存名称

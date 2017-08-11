@@ -1,0 +1,135 @@
+[ 2017-08-11T13:53:45+08:00 ] 127.0.0.1 /index.php/admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-08-11T13:53:45+08:00 ] 127.0.0.1 /index.php/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 模板不存在:./App/Admin/View/default/Login/index.html
+
+[ 2017-08-11T13:54:35+08:00 ] 127.0.0.1 /index.php/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-08-11T13:54:35+08:00 ] 127.0.0.1 /index.php/Admin/Login/chkcode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-08-11T13:54:39+08:00 ] 127.0.0.1 /index.php/Admin/Login/chkcode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-08-11T13:54:41+08:00 ] 127.0.0.1 /index.php/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-08-11T13:54:42+08:00 ] 127.0.0.1 /index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-08-11T13:54:46+08:00 ] 127.0.0.1 /index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-08-11T13:54:47+08:00 ] 127.0.0.1 /index.php/Admin/Navs/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-08-11T13:55:06+08:00 ] 127.0.0.1 /index.php/Admin/Navs/setStatus.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zsf_admin_role` [ RunTime:0.0250s ]
+SQL: SELECT d.`id`,d.`pid`,d.`name` FROM zsf_admin_role a  LEFT JOIN `zsf_role` b ON a.`admin_id` = b.`id`  LEFT JOIN `zsf_role_node` c ON b.`id` = c.`role_id`  LEFT JOIN `zsf_node` d ON d.`id` = c.`node_id`  WHERE a.`admin_id` = '1' AND b.`status` = 1 AND d.`status` = 1  [ RunTime:0.0250s ]
+SQL: SHOW COLUMNS FROM `zsf_menu` [ RunTime:0.0196s ]
+SQL: SELECT `id`,`title`,`icon`,`url`,`pid` FROM `zsf_menu` WHERE `status` = 1 ORDER BY sort ASC  [ RunTime:0.0322s ]
+SQL: SHOW COLUMNS FROM `zsf_navs` [ RunTime:0.0156s ]
+SQL: SELECT `status`,`pid` FROM `zsf_navs` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0337s ]
+SQL: SELECT * FROM `zsf_navs`  [ RunTime:0.0265s ]
+SQL: UPDATE `zsf_navs` SET `status`='0' WHERE `id` IN ('4') [ RunTime:0.0280s ]
+
+[ 2017-08-11T13:55:06+08:00 ] 127.0.0.1 /index.php/Admin/Navs/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-08-11T13:55:08+08:00 ] 127.0.0.1 /index.php/Admin/Navs/setStatus.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zsf_admin_role` [ RunTime:0.0190s ]
+SQL: SELECT d.`id`,d.`pid`,d.`name` FROM zsf_admin_role a  LEFT JOIN `zsf_role` b ON a.`admin_id` = b.`id`  LEFT JOIN `zsf_role_node` c ON b.`id` = c.`role_id`  LEFT JOIN `zsf_node` d ON d.`id` = c.`node_id`  WHERE a.`admin_id` = '1' AND b.`status` = 1 AND d.`status` = 1  [ RunTime:0.0190s ]
+SQL: SHOW COLUMNS FROM `zsf_menu` [ RunTime:0.0190s ]
+SQL: SELECT `id`,`title`,`icon`,`url`,`pid` FROM `zsf_menu` WHERE `status` = 1 ORDER BY sort ASC  [ RunTime:0.0190s ]
+SQL: SHOW COLUMNS FROM `zsf_navs` [ RunTime:0.0190s ]
+SQL: SELECT `status`,`pid` FROM `zsf_navs` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0180s ]
+SQL: SELECT * FROM `zsf_navs`  [ RunTime:0.0190s ]
+SQL: UPDATE `zsf_navs` SET `status`='0' WHERE `id` IN ('5') [ RunTime:0.0180s ]
+
+[ 2017-08-11T13:55:09+08:00 ] 127.0.0.1 /index.php/Admin/Navs/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-08-11T13:55:19+08:00 ] 127.0.0.1 /index.php/Admin/Navs/setStatus.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zsf_admin_role` [ RunTime:0.0180s ]
+SQL: SELECT d.`id`,d.`pid`,d.`name` FROM zsf_admin_role a  LEFT JOIN `zsf_role` b ON a.`admin_id` = b.`id`  LEFT JOIN `zsf_role_node` c ON b.`id` = c.`role_id`  LEFT JOIN `zsf_node` d ON d.`id` = c.`node_id`  WHERE a.`admin_id` = '1' AND b.`status` = 1 AND d.`status` = 1  [ RunTime:0.0180s ]
+SQL: SHOW COLUMNS FROM `zsf_menu` [ RunTime:0.0180s ]
+SQL: SELECT `id`,`title`,`icon`,`url`,`pid` FROM `zsf_menu` WHERE `status` = 1 ORDER BY sort ASC  [ RunTime:0.0180s ]
+SQL: SHOW COLUMNS FROM `zsf_navs` [ RunTime:0.0180s ]
+SQL: SELECT `status`,`pid` FROM `zsf_navs` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0190s ]
+SQL: SELECT * FROM `zsf_navs`  [ RunTime:0.0190s ]
+SQL: UPDATE `zsf_navs` SET `status`='1' WHERE `id` IN ('5') [ RunTime:0.0180s ]
+
+[ 2017-08-11T13:55:20+08:00 ] 127.0.0.1 /index.php/Admin/Navs/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-08-11T13:55:21+08:00 ] 127.0.0.1 /index.php/Admin/Navs/setStatus.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zsf_admin_role` [ RunTime:0.0240s ]
+SQL: SELECT d.`id`,d.`pid`,d.`name` FROM zsf_admin_role a  LEFT JOIN `zsf_role` b ON a.`admin_id` = b.`id`  LEFT JOIN `zsf_role_node` c ON b.`id` = c.`role_id`  LEFT JOIN `zsf_node` d ON d.`id` = c.`node_id`  WHERE a.`admin_id` = '1' AND b.`status` = 1 AND d.`status` = 1  [ RunTime:0.0250s ]
+SQL: SHOW COLUMNS FROM `zsf_menu` [ RunTime:0.0250s ]
+SQL: SELECT `id`,`title`,`icon`,`url`,`pid` FROM `zsf_menu` WHERE `status` = 1 ORDER BY sort ASC  [ RunTime:0.0260s ]
+SQL: SHOW COLUMNS FROM `zsf_navs` [ RunTime:0.0250s ]
+SQL: SELECT `status`,`pid` FROM `zsf_navs` WHERE `id` = 4 LIMIT 1   [ RunTime:0.0240s ]
+SQL: SELECT * FROM `zsf_navs`  [ RunTime:0.0260s ]
+SQL: UPDATE `zsf_navs` SET `status`='1' WHERE `id` IN ('4') [ RunTime:0.0240s ]
+
+[ 2017-08-11T13:55:21+08:00 ] 127.0.0.1 /index.php/Admin/Navs/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-08-11T13:55:29+08:00 ] 127.0.0.1 /index.php/Admin/Navs/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+

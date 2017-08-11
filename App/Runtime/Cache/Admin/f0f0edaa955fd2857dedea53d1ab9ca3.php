@@ -9,23 +9,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		
-		<link rel="stylesheet" href="/public/static/ace/css/bootstrap.css" />
-		<link rel="stylesheet" href="/public/static/components/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="/Public/static/ace/css/bootstrap.css" />
+		<link rel="stylesheet" href="/Public/static/components/font-awesome/css/font-awesome.css" />
 
 		
 		
-		<link rel="stylesheet" href="/public/static/ace/css/ace-fonts.css" />
+		<link rel="stylesheet" href="/Public/static/ace/css/ace-fonts.css" />
 
 		
-		<link rel="stylesheet" href="/public/static/ace/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
+		<link rel="stylesheet" href="/Public/static/ace/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
 
 		<!--[if lte IE 9]>
-			<link rel="stylesheet" href="/public/static/ace/css/ace-part2.css" />
+			<link rel="stylesheet" href="/Public/static/ace/css/ace-part2.css" />
 		<![endif]-->
-		<link rel="stylesheet" href="/public/static/ace/css/ace-rtl.css" />
+		<link rel="stylesheet" href="/Public/static/ace/css/ace-rtl.css" />
 
 		<!--[if lte IE 9]>
-		  <link rel="stylesheet" href="/public/static/ace/css/ace-ie.css" />
+		  <link rel="stylesheet" href="/Public/static/ace/css/ace-ie.css" />
 		<![endif]-->
 
 		<style type="text/css">
@@ -35,8 +35,8 @@
 
 		
 		<!--[if lte IE 8]>
-			<script src="/public/static/components/html5shiv/dist/html5shiv.min.js"></script>
-			<script src="/public/static/components/respond/dest/respond.min.js"></script>
+			<script src="/Public/static/components/html5shiv/dist/html5shiv.min.js"></script>
+			<script src="/Public/static/components/respond/dest/respond.min.js"></script>
 		<![endif]-->
 	</head>
 
@@ -254,16 +254,16 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
-			<script src="/public/static/components/jquery/dist/jquery.js"></script>
+			<script src="/Public/static/components/jquery/dist/jquery.js"></script>
 		<!-- <![endif]-->
 
 		<!--[if IE]>
-			<script src="/public/static/components/jquery.1x/dist/jquery.js"></script>
+			<script src="/Public/static/components/jquery.1x/dist/jquery.js"></script>
 		<![endif]-->
 
-		<script type="text/javascript" src="/public/static/components/jquery-validation\dist\jquery.validate.js"></script>
+		<script type="text/javascript" src="/Public/static/components/jquery-validation\dist\jquery.validate.js"></script>
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='/public/static/components/_mod/jquery.mobile.custom/jquery.mobile.custom.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='/Public/static/components/_mod/jquery.mobile.custom/jquery.mobile.custom.js'>"+"<"+"/script>");
 			
 			// jQuery(function($) {
 			// 	 $(document).on('click', '.toolbar a[data-target]', function(e) {
