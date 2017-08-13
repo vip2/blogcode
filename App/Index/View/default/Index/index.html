@@ -1,5 +1,11 @@
-<layout name="Layout/index" />
-<!-- <include file="Layout/header" />
-<include file="Layout/navs" /> -->
+<extend name='Layout/index'/>
 
-<!-- <include file="Layout/footer" /> -->
+<block name="pJs">
+<script>
+	//轮播自动播放
+	$('#myCarousel').carousel({
+		//自动4秒播放
+		interval : 4000,
+	});
+</script>
+</block>

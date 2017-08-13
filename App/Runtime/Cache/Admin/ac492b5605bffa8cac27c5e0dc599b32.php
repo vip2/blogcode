@@ -10,34 +10,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		
-		<link rel="stylesheet" href="/public/static/ace/css/bootstrap.css" />
-		<link rel="stylesheet" href="/public/static/components/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="/Public/static/ace/css/bootstrap.css" />
+		<link rel="stylesheet" href="/Public/static/components/font-awesome/css/font-awesome.css" />
 		
-		<link rel="stylesheet" href="/public/static/components/jquery.gritter/css/jquery.gritter.css" />
+		<link rel="stylesheet" href="/Public/static/components/jquery.gritter/css/jquery.gritter.css" />
 
 		
 		
-		<link rel="stylesheet" href="/public/static/ace/css/ace-fonts.css" />
+		<link rel="stylesheet" href="/Public/static/ace/css/ace-fonts.css" />
 		
 
 		
-		<link rel="stylesheet" href="/public/static/ace/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
-
-		<!--[if lte IE 9]>
-			<link rel="stylesheet" href="/public/static/ace/css/ace-part2.css" class="ace-main-stylesheet" />
-		<![endif]-->
-		<link rel="stylesheet" href="/public/static/ace/css/ace-skins.css" />
-		<link rel="stylesheet" href="/public/static/ace/css/ace-rtl.css" />
+		<link rel="stylesheet" href="/Public/static/ace/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
 
 		<!--[if lte IE 9]>
-		  <link rel="stylesheet" href="/public/static/ace/css/ace-ie.css" />
+			<link rel="stylesheet" href="/Public/static/ace/css/ace-part2.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="/Public/static/ace/css/ace-skins.css" />
+		<link rel="stylesheet" href="/Public/static/ace/css/ace-rtl.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="/Public/static/ace/css/ace-ie.css" />
 		<![endif]-->
 		
-		<link rel="stylesheet" href="/public/static/admin/css/main.css" />
+		<link rel="stylesheet" href="/Public/static/admin/css/main.css" />
 		
 		
-<link rel="stylesheet" type="text/css" href="/public/static/components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
-<link rel="stylesheet" type="text/css" href="/public/static/components/bootstrap-daterangepicker/daterangepicker.min.css">
+<link rel="stylesheet" type="text/css" href="/Public/static/components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
+<link rel="stylesheet" type="text/css" href="/Public/static/components/bootstrap-daterangepicker/daterangepicker.min.css">
 <style type="text/css">
 	#my-table-tool .search-select{
 		margin-bottom: 2px;
@@ -55,15 +55,15 @@
 </style>
 
 
-		<link rel="stylesheet" href="/public/static/ace/css/ace-rtl.css" />
+		<link rel="stylesheet" href="/Public/static/ace/css/ace-rtl.css" />
 		
 		
-		<script src="/public/static/ace/js/ace-extra.js"></script>
+		<script src="/Public/static/ace/js/ace-extra.js"></script>
 
 		
 		<!--[if lte IE 8]>
-			<script src="/public/static/components/html5shiv/dist/html5shiv.min.js"></script>
-			<script src="/public/static/components/respond/dest/respond.min.js"></script>
+			<script src="/Public/static/components/html5shiv/dist/html5shiv.min.js"></script>
+			<script src="/Public/static/components/respond/dest/respond.min.js"></script>
 		<![endif]-->
 	</head>
 
@@ -287,7 +287,7 @@
 									<ul class="dropdown-menu dropdown-navbar">
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/public/static/ace/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+												<img src="/Public/static/ace/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Alex:</span>
@@ -304,7 +304,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/public/static/ace/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+												<img src="/Public/static/ace/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Susan:</span>
@@ -321,7 +321,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/public/static/ace/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+												<img src="/Public/static/ace/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Bob:</span>
@@ -338,7 +338,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/public/static/ace/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+												<img src="/Public/static/ace/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Kate:</span>
@@ -355,7 +355,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/public/static/ace/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+												<img src="/Public/static/ace/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Fred:</span>
@@ -384,7 +384,7 @@
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="/public/static/ace/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="/Public/static/ace/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info center">
 									<small><?php echo ($_SESSION["admin"]["nickname"]); ?></small>
 									<small>[<?php echo ($_SESSION["admin"]["groupname"]); ?>]</small>
@@ -785,28 +785,28 @@
 
 		
 		<!--[if !IE]> -->
-			<script src="/public/static/components/jquery/dist/jquery.js"></script>
+			<script src="/Public/static/components/jquery/dist/jquery.js"></script>
 		<!-- <![endif]-->
 
 		<!--[if IE]>
-			<script src="/public/static/components/jquery.1x/dist/jquery.js"></script>
+			<script src="/Public/static/components/jquery.1x/dist/jquery.js"></script>
 		<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) 
-			document.write("<script src='/public/static/components/_mod/jquery.mobile.custom/jquery.mobile.custom.js'>"+"<"+"/script>");
+			document.write("<script src='/Public/static/components/_mod/jquery.mobile.custom/jquery.mobile.custom.js'>"+"<"+"/script>");
 		</script>
-		<script src="/public/static/components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="/Public/static/components/bootstrap/dist/js/bootstrap.js"></script>
 		
-		<script src="/public/static/components/jquery.gritter/js/jquery.gritter.js"></script>
-		<script src="/public/static/components/spin.js/spin.js"></script>
+		<script src="/Public/static/components/jquery.gritter/js/jquery.gritter.js"></script>
+		<script src="/Public/static/components/spin.js/spin.js"></script>
 
-		<script type="text/javascript" src="/public/static/admin/js/main.js"></script>
+		<script type="text/javascript" src="/Public/static/admin/js/main.js"></script>
 		
 		
-<script src="/public/static/components/moment/moment.min.js"></script>
-<script src="/public/static/components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
-<script src="/public/static/components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
-<script src="/public/static/components/bootstrap-daterangepicker/daterangepicker.min.js"></script>
+<script src="/Public/static/components/moment/moment.min.js"></script>
+<script src="/Public/static/components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script src="/Public/static/components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="/Public/static/components/bootstrap-daterangepicker/daterangepicker.min.js"></script>
 <script type="text/javascript">
 	$('#my-table-tool input[name=pushtime]').daterangepicker({
 		'applyClass' : 'btn-sm btn-success',
@@ -909,29 +909,29 @@
 
 
 		
-		<script src="/public/static/ace/js/src/elements.scroller.js"></script>
-		<script src="/public/static/ace/js/src/elements.colorpicker.js"></script>
-		<script src="/public/static/ace/js/src/elements.fileinput.js"></script>
-		<script src="/public/static/ace/js/src/elements.typeahead.js"></script>
-		<script src="/public/static/ace/js/src/elements.wysiwyg.js"></script>
-		<script src="/public/static/ace/js/src/elements.spinner.js"></script>
-		<script src="/public/static/ace/js/src/elements.treeview.js"></script>
-		<script src="/public/static/ace/js/src/elements.wizard.js"></script>
-		<script src="/public/static/ace/js/src/elements.aside.js"></script>
-		<script src="/public/static/ace/js/src/ace.js"></script>
-		<script src="/public/static/ace/js/src/ace.basics.js"></script>
-		<script src="/public/static/ace/js/src/ace.scrolltop.js"></script>
-		<script src="/public/static/ace/js/src/ace.ajax-content.js"></script>
-		<script src="/public/static/ace/js/src/ace.touch-drag.js"></script>
-		<script src="/public/static/ace/js/src/ace.sidebar.js"></script>
-		<script src="/public/static/ace/js/src/ace.sidebar-scroll-1.js"></script>
-		<script src="/public/static/ace/js/src/ace.submenu-hover.js"></script>
-		<script src="/public/static/ace/js/src/ace.widget-box.js"></script>
-		<script src="/public/static/ace/js/src/ace.settings.js"></script>
-		<script src="/public/static/ace/js/src/ace.settings-rtl.js"></script>
-		<script src="/public/static/ace/js/src/ace.settings-skin.js"></script>
-		<script src="/public/static/ace/js/src/ace.widget-on-reload.js"></script>
-		<script src="/public/static/ace/js/src/ace.searchbox-autocomplete.js"></script>
+		<script src="/Public/static/ace/js/src/elements.scroller.js"></script>
+		<script src="/Public/static/ace/js/src/elements.colorpicker.js"></script>
+		<script src="/Public/static/ace/js/src/elements.fileinput.js"></script>
+		<script src="/Public/static/ace/js/src/elements.typeahead.js"></script>
+		<script src="/Public/static/ace/js/src/elements.wysiwyg.js"></script>
+		<script src="/Public/static/ace/js/src/elements.spinner.js"></script>
+		<script src="/Public/static/ace/js/src/elements.treeview.js"></script>
+		<script src="/Public/static/ace/js/src/elements.wizard.js"></script>
+		<script src="/Public/static/ace/js/src/elements.aside.js"></script>
+		<script src="/Public/static/ace/js/src/ace.js"></script>
+		<script src="/Public/static/ace/js/src/ace.basics.js"></script>
+		<script src="/Public/static/ace/js/src/ace.scrolltop.js"></script>
+		<script src="/Public/static/ace/js/src/ace.ajax-content.js"></script>
+		<script src="/Public/static/ace/js/src/ace.touch-drag.js"></script>
+		<script src="/Public/static/ace/js/src/ace.sidebar.js"></script>
+		<script src="/Public/static/ace/js/src/ace.sidebar-scroll-1.js"></script>
+		<script src="/Public/static/ace/js/src/ace.submenu-hover.js"></script>
+		<script src="/Public/static/ace/js/src/ace.widget-box.js"></script>
+		<script src="/Public/static/ace/js/src/ace.settings.js"></script>
+		<script src="/Public/static/ace/js/src/ace.settings-rtl.js"></script>
+		<script src="/Public/static/ace/js/src/ace.settings-skin.js"></script>
+		<script src="/Public/static/ace/js/src/ace.widget-on-reload.js"></script>
+		<script src="/Public/static/ace/js/src/ace.searchbox-autocomplete.js"></script>
 		
 		
 	</body>

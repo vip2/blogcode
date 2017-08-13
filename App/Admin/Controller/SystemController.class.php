@@ -40,6 +40,7 @@ class SystemController extends IndexController
         $systemData['ADMIN_TXT']['web_description'] = I('post.web_description/s', '3KHOT后台管理系统');
         // 调试
         $systemData['SHOW_PAGE_TRACE'] = I('post.SHOW_PAGE_TRACE', false)?true:false;
+        $systemData['WEB_UPDATE_HTML'] = I('post.WEB_UPDATE_HTML', false)?true:false;
         $systemData['TOKEN_ON'] = I('post.TOKEN_ON', false)?true:false;
         // 写入文件
         myFw($fileName, $systemData);

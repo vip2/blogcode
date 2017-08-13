@@ -240,6 +240,9 @@ body {
 	text-decoration: none;
 	border: 1px dashed #ccc;
 }
+.links-a .exchange-link{
+	color: #d5cbcb;
+}
 .links-a a:hover{
 	color: #FFF;
 	border: 1px solid rgb(247, 120, 37);

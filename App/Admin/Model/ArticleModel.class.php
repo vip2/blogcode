@@ -100,6 +100,8 @@ class ArticleModel extends Model
 	{	
 		// 处理文章标签
 		$tags = explode(',', trim(I('post.tag/s'), ','));
+		// 处理标签左右空格
+		$tags = $this->arrayTrim($tags);
 		if ($tags) {
 			$Tag = M('Tag');
 			$ArticleTag = M('ArticleTag');
@@ -114,7 +116,7 @@ class ArticleModel extends Model
 			if ($tags) {
 				foreach ($tags as $k => $val) {
 					// 新增标签
-					$newId = $Tag->add(array('tagname' => $k));
+					$newId = $Tag->add(array('tagname' => trim($k)));
 					// 新增关联
 					$ArticleTag->add(array('article_id' => $data['id'],'tag_id'	=> $newId ));
 				}
@@ -130,6 +132,8 @@ class ArticleModel extends Model
 		$ArticleTag->where(array('article_id'=>$option['where']['id']))->delete();
 		// 处理文章标签
 		$tags = explode(',', trim(I('post.tag/s'), ','));
+		// 处理标签左右空格
+		$tags = $this->arrayTrim($tags);
 		if ($tags) {
 			$Tag = M('Tag');
 			// 获取已有的标签
@@ -205,5 +209,27 @@ class ArticleModel extends Model
                 ->where(array('a.id'=>$id))
                 ->group('a.id')->find();
         return $info;
+	}
+
+	/**
+	 * 去除标签数组值左右空格
+	 *
+	 * @param  array  $tags  需要处理的数组
+	 *
+	 * @return  array  返回处理后的数组
+	 */
+	protected function arrayTrim($tags)
+	{
+		if ($tags) {
+			foreach ($tags as $k => $v) {
+				$v = trim($v); //去除左右空格
+				if ($v) {
+					$tags[$k] = $v;
+				} else {
+					unset($tags[$k]);//标签值为空时，删除标签
+				}
+			}
+		}
+		return $tags;
 	}
 }

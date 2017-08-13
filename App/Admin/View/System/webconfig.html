@@ -49,6 +49,14 @@
 					<textarea id="field-web_description" name="web_description" class="col-xs-10 col-sm-10" placeholder="网站描述"><{$data.ADMIN_TXT.web_keywords}></textarea>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-WEB_UPDATE_HTML"> 开启网站 </label>
+				<div class="col-sm-9 col-xs-7">
+					<input name="WEB_UPDATE_HTML" value="true" <eq name="data.WEB_UPDATE_HTML" value="true">checked</eq> id="field-status" class="ace ace-switch ace-switch-7" type="checkbox" />
+						<span class="lbl"></span>
+				</div>
+			</div>
 			
 			<div class="form-group">
 				<label class="col-sm-3 col-xs-5 control-label no-padding-right"> <b>网站调试信息</b> </label>

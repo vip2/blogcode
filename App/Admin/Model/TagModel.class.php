@@ -42,7 +42,7 @@ class TagModel extends Model
 	}
 
 	// 删除前
-	public function _before_delete($option)
+	protected function _before_delete($option)
 	{	
 		// 判断是否有文章属于该标签
 		$count = M('ArticleTag')->where(array('tag_id'=>$option['where']['id']))->count();

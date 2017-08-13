@@ -31,9 +31,6 @@ return array (
     'webconfig' => '后台设置',
     'dataconfig' => '参数设置',
     'emailconfig' => '邮箱设置',
-    // 'emailtpl' => '邮箱模板',
-    // 'fileconfig' => '文件设置',
-    // 'salarytpl' => '工资模板',
   ),
   'AUTO_CODE_CAPITAL' => 'lower',
   'AUTO_CODE_LENGTH' => 6,
@@ -52,7 +49,11 @@ return array (
     5 => 'jpeg',
   ),
   'IMG_ROOT_PATH' => './Public/static/Uploads/',
-  'ARTICLE_LOGO_THUMB' => array(215,144),
+  'ARTICLE_LOGO_THUMB' => 
+  array (
+    0 => 220,
+    1 => 138,
+  ),
   'YZM_CODE_LENGTH' => 2,
   'YZM_USE_NOISE' => false,
   'YZM_USE_CURVE' => true,
@@ -62,5 +63,6 @@ return array (
   'YZM_FONT_SIZE' => 16,
   'PAGE_DEFAULT_NUM' => 1,
   'MAIL_TPL_TITLE' => '{$THISMONTH$}的工资详情{$NICKNAME$}',
+  'WEB_UPDATE_HTML' => true,
 );
 ?>
