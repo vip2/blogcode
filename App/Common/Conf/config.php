@@ -47,6 +47,7 @@ return array(
     'EXCEL_FILE_EXTS'        => array('xls','xlsx','csv'),
     'UPLOAD_FILE_EXTS'       => array('xls','xlsx','csv','jpg', 'pjpeg', 'bmp', 'gif', 'png', 'jpeg'),
     'WEEKS'                  => array('日','一','二','三', '四', '五', '六'),
+    'RANKING_LIST_NUM'       => array(4,5,6,7,8,9,10,12,15,20), //排行显示条数
     'PAGE_LIST_NUM'          => array(1,2,5,10,15,20,30,40,50,100,150,200,250,300,500), //列表分页的条数
     // 'WEB_UPDATE_HTML'		 => true, //网站升级页面
 );

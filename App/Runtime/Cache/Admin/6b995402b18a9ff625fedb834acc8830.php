@@ -608,6 +608,14 @@
 <form class="form-horizontal" method="POST" role="form" action="<?php echo U("System/$onType");?>">
 	<div class="row">
 		<div class="col-xs-12 col-sm-6">
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-RANKING_DEFAULT_NUM"> 排行显示条数 </label>
+				<div class="col-sm-9 col-xs-7">
+					<select name="RANKING_DEFAULT_NUM" id="field-RANKING_DEFAULT_NUM" class="col-xs-10 col-sm-10 input-sm" placeholder="排行显示条数">
+						<?php if(is_array(C("RANKING_LIST_NUM"))): foreach(C("RANKING_LIST_NUM") as $key=>$vo): ?><option value="<?php echo ($vo); ?>" <?php if(($data["RANKING_DEFAULT_NUM"]) == $vo): ?>selected<?php endif; ?>>显示 <?php echo ($vo); ?> 条</option><?php endforeach; endif; ?>
+					</select>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-PAGE_DEFAULT_NUM"> 默认分页条数 </label>

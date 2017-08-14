@@ -61,8 +61,9 @@ return array (
   'YZM_CODE_W' => 116,
   'YZM_CODE_H' => 33,
   'YZM_FONT_SIZE' => 16,
-  'PAGE_DEFAULT_NUM' => 1,
+  'PAGE_DEFAULT_NUM' => 20,
   'MAIL_TPL_TITLE' => '{$THISMONTH$}的工资详情{$NICKNAME$}',
   'WEB_UPDATE_HTML' => true,
+  'RANKING_DEFAULT_NUM' => 10,
 );
 ?>

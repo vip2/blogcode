@@ -18,6 +18,16 @@
 <form class="form-horizontal" method="POST" role="form" action="<{:U("System/$onType")}>">
 	<div class="row">
 		<div class="col-xs-12 col-sm-6">
+			<div class="form-group">
+				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-RANKING_DEFAULT_NUM"> 排行显示条数 </label>
+				<div class="col-sm-9 col-xs-7">
+					<select name="RANKING_DEFAULT_NUM" id="field-RANKING_DEFAULT_NUM" class="col-xs-10 col-sm-10 input-sm" placeholder="排行显示条数">
+						<foreach name="Think.config.RANKING_LIST_NUM" item="vo">
+							<option value="<{$vo}>" <eq name="data.RANKING_DEFAULT_NUM" value="$vo">selected</eq>>显示 <{$vo}> 条</option>
+						</foreach>
+					</select>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<label class="col-sm-3 col-xs-5 control-label no-padding-right" for="field-PAGE_DEFAULT_NUM"> 默认分页条数 </label>
