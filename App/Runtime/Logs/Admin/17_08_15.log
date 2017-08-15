@@ -1,0 +1,105 @@
+[ 2017-08-15T23:37:17+08:00 ] 127.0.0.1 /index.php/Admin/Article/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000498s ]
+
+[ 2017-08-15T23:37:17+08:00 ] 127.0.0.1 /index.php/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000515s ]
+
+[ 2017-08-15T23:37:17+08:00 ] 127.0.0.1 /index.php/Admin/Login/chkcode.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000490s ]
+
+[ 2017-08-15T23:37:27+08:00 ] 127.0.0.1 /index.php/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000600s ]
+
+[ 2017-08-15T23:37:28+08:00 ] 127.0.0.1 /index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000429s ]
+
+[ 2017-08-15T23:37:33+08:00 ] 127.0.0.1 /index.php/Admin/Article/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000516s ]
+
+[ 2017-08-15T23:37:53+08:00 ] 127.0.0.1 /index.php/Admin/Article/index.html?fledname=title&keyword=&pushtime=08-15-2017+%E8%87%B3+08-15-2017&pnum=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000447s ]
+
+[ 2017-08-15T23:38:01+08:00 ] 127.0.0.1 /index.php/Admin/Article/setStatus.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000418s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000455s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000475s ]
+SQL: SHOW COLUMNS FROM `zsf_admin_role` [ RunTime:0.0657s ]
+SQL: SELECT d.`id`,d.`pid`,d.`name` FROM zsf_admin_role a  LEFT JOIN `zsf_role` b ON a.`admin_id` = b.`id`  LEFT JOIN `zsf_role_node` c ON b.`id` = c.`role_id`  LEFT JOIN `zsf_node` d ON d.`id` = c.`node_id`  WHERE a.`admin_id` = '1' AND b.`status` = 1 AND d.`status` = 1  [ RunTime:0.0387s ]
+SQL: SHOW COLUMNS FROM `zsf_menu` [ RunTime:0.0623s ]
+SQL: SELECT `id`,`title`,`icon`,`url`,`pid` FROM `zsf_menu` WHERE `status` = 1 ORDER BY sort ASC  [ RunTime:0.0378s ]
+SQL: SHOW COLUMNS FROM `zsf_article` [ RunTime:0.0636s ]
+SQL: SELECT `istop` FROM `zsf_article` WHERE `id` = 10 LIMIT 1   [ RunTime:0.0366s ]
+SQL: UPDATE `zsf_article` SET `istop`='1' WHERE `id` = 10 [ RunTime:0.0369s ]
+
+[ 2017-08-15T23:38:02+08:00 ] 127.0.0.1 /index.php/Admin/Article/index.html?fledname=title&keyword=&pushtime=08-15-2017+%E8%87%B3+08-15-2017&pnum=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000800s ]
+
+[ 2017-08-15T23:38:29+08:00 ] 127.0.0.1 /index.php/Admin/Article/edit/id/11.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000521s ]
+
+[ 2017-08-15T23:38:44+08:00 ] 127.0.0.1 /index.php/Admin/Article/edit/id/11.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000862s ]
+
+[ 2017-08-15T23:38:46+08:00 ] 127.0.0.1 /index.php/Admin/Article/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000402s ]
+
+[ 2017-08-15T23:38:52+08:00 ] 127.0.0.1 /index.php/Admin/Article/info/id/11.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000587s ]
+
+[ 2017-08-15T23:39:00+08:00 ] 127.0.0.1 /index.php/Admin/Article/info/id/11.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000532s ]
+
+[ 2017-08-15T23:39:38+08:00 ] 127.0.0.1 /index.php/Admin/Tag/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000496s ]
+
+[ 2017-08-15T23:39:47+08:00 ] 127.0.0.1 /index.php/Admin/Tag/index.html?keywords=&pnum=15
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000606s ]
+
+[ 2017-08-15T23:46:14+08:00 ] 127.0.0.1 /index.php/Admin/Tag/edit/id/32.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000502s ]
+
+[ 2017-08-15T23:46:32+08:00 ] 127.0.0.1 /index.php/Admin/Tag/index/pnum/15/p/2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000478s ]
+
+[ 2017-08-15T23:46:36+08:00 ] 127.0.0.1 /index.php/Admin/Tag/index/pnum/15/p/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000526s ]
+

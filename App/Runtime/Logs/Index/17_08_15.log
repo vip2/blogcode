@@ -1,0 +1,501 @@
+[ 2017-08-15T21:35:17+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000968s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:38+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000653s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:41+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:42+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000673s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:42+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001009s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:43+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:44+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001048s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:44+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000622s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:45+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000693s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:45+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000494s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:46+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000443s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:46+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:57+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000723s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:57+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000373s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:35:58+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:02+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000501s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:03+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:03+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000429s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:05+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000776s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:18+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000605s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:26+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000575s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:27+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000636s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:29+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000445s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:30+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000516s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:31+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:32+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000662s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:39+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000623s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:40+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:40+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000496s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:40+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000773s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:41+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000501s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:49+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:50+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000437s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:36:51+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000433s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:09+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000566s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:11+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000776s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:13+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:14+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000442s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:14+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000484s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:15+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000510s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:18+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:18+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:19+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000438s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:20+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000367s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:21+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000665s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:29+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000567s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:33+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:34+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:35+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:36+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000548s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:36+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000682s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:36+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000451s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:37+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000585s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:38+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000555s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:39+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000505s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:41+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000486s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:38:43+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000629s ]
+ERR: 1146:Table 'qdm106622232_db.zsf_admin/_article' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zsf_admin/_article`
+
+[ 2017-08-15T21:40:12+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000516s ]
+
+[ 2017-08-15T21:40:40+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000423s ]
+
+[ 2017-08-15T21:41:05+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000557s ]
+
+[ 2017-08-15T21:41:33+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+
+[ 2017-08-15T21:42:15+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000448s ]
+
+[ 2017-08-15T23:26:55+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000550s ]
+
+[ 2017-08-15T23:27:17+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+
+[ 2017-08-15T23:29:32+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+
+[ 2017-08-15T23:29:34+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+
+[ 2017-08-15T23:29:51+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+ERR: XML标签语法错误 : name='<{$key}
+
+[ 2017-08-15T23:30:39+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000547s ]
+
+[ 2017-08-15T23:30:44+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000757s ]
+
+[ 2017-08-15T23:31:10+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000433s ]
+
+[ 2017-08-15T23:33:02+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000585s ]
+
+[ 2017-08-15T23:33:07+08:00 ] 127.0.0.1 /index.php/Index/Article/info/id/13.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000361s ]
+ERR: 无法加载控制器:Article
+
+[ 2017-08-15T23:34:52+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000514s ]
+
+[ 2017-08-15T23:38:07+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+
+[ 2017-08-15T23:39:11+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000423s ]
+
+[ 2017-08-15T23:41:33+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001094s ]
+
+[ 2017-08-15T23:58:15+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000524s ]
+

@@ -307,7 +307,13 @@
     						</li>
         				</nav>
         				<div class="tab-content right-nav-content">
-    						<ul class="tab-pane fade in active" id="click-sort">
+                            <?php if(is_array($rankingData)): foreach($rankingData as $key=>$vo): ?><ul class="tab-pane fade <?php if(($key) == "click-sort"): ?>in active<?php endif; ?>" id="<?php echo ($key); ?>">
+                                    <?php if(is_array($vo)): foreach($vo as $k=>$v): ?><li>
+                                            <span class="li-num num-<?php echo ($k+1); ?>"><?php echo ($k+1); ?></span> 
+                                            <a href="<?php echo U('Index/Article/info', array('id'=>$v['id']));?>"><?php echo ($v["title"]); ?></a>
+                                        </li><?php endforeach; endif; ?>
+                                </ul><?php endforeach; endif; ?>
+    				<!-- 		<ul class="tab-pane fade in active" id="click-sort">
     							<li><span class="li-num num-1">1</span> <a href="#">11原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
     							<li><span class="li-num num-2">2</span> <a href="#">模拟朋友圈数据存储原理</a></li>
     							<li><span class="li-num num-3">3</span> <a href="#">CSS省略号text-overflow超出溢出显示省略号</a></li>
@@ -342,7 +348,7 @@
     							<li><span class="li-num num-8">8</span> <a href="#">DIV+CSS规范命名大全集合</a></li>
     							<li><span class="li-num num-9">9</span> <a href="#">虚拟主机相关知识</a></li>
     							<li><span class="li-num num-10">10</span> <a href="#">个人博客如何减少跳出提高流量</a></li>
-    						</ul>
+    						</ul> -->
     					</div>
     					<!-- 排行 -->
     					<!-- 标签云 -->
@@ -418,6 +424,7 @@
   		{ label: 'Notification', url: '#', target: '_top' },
   		{ label: 'Parallax', url: '#', target: '_top' }
   	];
+    entries = <?php echo ($tagCloudData); ?>;
   	var cloudId = $( '#tag-cloud' );
   	var cloudW = cloudId.width()*0.8;
   	var settings = {

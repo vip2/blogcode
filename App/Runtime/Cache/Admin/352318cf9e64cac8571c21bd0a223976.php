@@ -19,9 +19,6 @@
 		
 		<link rel="stylesheet" href="/Public/static/ace/css/ace-fonts.css" />
 		
-	<link rel="stylesheet" type="text/css" href="/Public/static/components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
-<!-- 	<link rel="stylesheet" type="text/css" href="/Public/static/components/chosen/chosen.min.css"> -->
-
 
 		
 		<link rel="stylesheet" href="/Public/static/ace/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
@@ -39,7 +36,9 @@
 		<link rel="stylesheet" href="/Public/static/admin/css/main.css" />
 		
 		
-	
+<style type="text/css">
+	.status span{cursor: pointer;}
+</style>
 
 		<link rel="stylesheet" href="/Public/static/ace/css/ace-rtl.css" />
 		
@@ -627,15 +626,24 @@
 <!-- S -->
 
 <div class="widget-container-col" id="widget-container-col-11">
-	<div class="widget-box widget-color-blue2" id="widget-box-11">
+	<div class="widget-box widget-color-blue2" id="widget-box-content">
 		<div class="widget-header">
 			<h6 class="widget-title">
-				<i class="menu-icon fa fa-user-plus"></i>&ensp;<?php echo ($_page_title); ?>
-			</h6>
+				<i class="menu-icon fa fa-list"></i>&ensp;<?php echo ($_page_title); ?>
 
+			</h6>
 			<div class="widget-toolbar">
-				<a title="返回列表" href="#" onclick='location.href="<?php echo U('index');?>"' data-action="settings">
+
+				<a href="javascript:void(0);" class="href-url" title="返回列表" onclick='location.href="<?php echo U('index');?>"' data-action="settings">
 					<i class="ace-icon fa fa-reply"></i>
+				</a>
+
+				<a href="javascript:void(0);" class="href-url" title="新增" onclick='location.href="<?php echo U('add');?>"' data-action="settings">
+					<i class="ace-icon fa fa-plus"></i>
+				</a>
+
+				<a href="javascript:void(0);" class="href-url" title="修改" onclick='location.href="<?php echo U('edit',array('id'=>$data['id']));?>"' data-action="settings">
+					<i class="ace-icon fa fa-pencil"></i>
 				</a>
 
 				<a href="#" data-action="fullscreen" class="orange2">
@@ -645,161 +653,75 @@
 		</div>
 
 		<div class="widget-body">
-			<!-- 表单 开始 -->
-			<form class="form-horizontal" method="POST" role="form" action="/index.php/Admin/Article/edit/id/11.html" enctype="multipart/form-data">
-			<!-- 主体 S -->
-			<div class="widget-main">
-				<div class="row">
-				<div class="col-xs-12 col-sm-6">
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-title"> 文章标题 </label>
-						<div class="col-sm-9">
-							<input type="text" id="field-title" name="title" value="<?php echo ((isset($data["title"]) && ($data["title"] !== ""))?($data["title"]):''); ?>" placeholder="文章标题" class="col-xs-10 col-sm-10" />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-cate_id"> 文章类型 </label>
-						<div class="col-sm-9">
-							<select name="cate_id" id="field-cate_id" class="col-xs-10 col-sm-10" placeholder="文章类型">
-								<?php if(is_array($cateData)): foreach($cateData as $key=>$vo): if(!in_array(($vo["id"]), is_array($childrenData)?$childrenData:explode(',',$childrenData))): ?><option value="<?php echo ($vo["id"]); ?>" <?php if(($vo["id"]) == $data["cate_id"]): ?>selected<?php endif; ?>>
-											<?php echo str_repeat('&ensp;', ($vo['level']-1) * 3); ?>|__ <?php echo ($vo["catename"]); ?>
-										</option><?php endif; endforeach; endif; ?>
-							</select>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-clicknum"> 点&ensp;击&ensp;量 </label>
-						<div class="col-sm-9">
-							<input type="text" id="field-clicknum" name="clicknum" value="<?php echo ((isset($data["clicknum"]) && ($data["clicknum"] !== ""))?($data["clicknum"]):'0'); ?>" placeholder="点击量" class="col-xs-10 col-sm-10" />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-looknum"> 浏&ensp;览&ensp;量 </label>
-						<div class="col-sm-9">
-							<input type="text" id="field-looknum" name="looknum" value="<?php echo ((isset($data["looknum"]) && ($data["looknum"] !== ""))?($data["looknum"]):'0'); ?>" placeholder="浏览量" class="col-xs-10 col-sm-10" />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-pushtime"> 发布时间 </label>
-						<div class="col-sm-9">
-							<div class="input-group col-xs-10 col-sm-10">
-								<input class="form-control date-picker" value="<?php echo isset($data['pushtime'])?$data['pushtime']:date('Y-m-d H:i:00');?>" id="field-pushtime" name="pushtime" placeholder="发布时间" type="text" data-date-format="YYYY-MM-DD HH:mm:00">
-								<span class="input-group-addon">
-									<i class="fa fa-calendar bigger-110"></i>
-								</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-keywords"> 关&ensp;键&ensp;词 </label>
-						<div class="col-sm-9">
-							<textarea name="keywords" id="field-keywords" class="col-xs-10 col-sm-10" placeholder="关键词"><?php echo ((isset($data["keywords"]) && ($data["keywords"] !== ""))?($data["keywords"]):''); ?></textarea>
-						
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-tag"> 标&emsp;&emsp;签 </label>
-						<div class="col-sm-9 input-tag">
-							<textarea name="tag" id="field-tag" class="col-xs-10 col-sm-10" placeholder="文章标签"></textarea>
-						</div>
-					</div>
-
-				</div>
-				<div class="col-xs-12 col-sm-6">
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-title"> 文章图片 </label>
-						<div class="col-sm-9 input-file">
-							<input accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file" class="input-sm col-xs-10 col-sm-10" id="inputfile" name="uploadfile">
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-status"> 是否显示 </label>
-						<div class="col-sm-9">
-							<div class="col-sm-9">
-								<input name="status" value="1" id="field-status" 
-									<?php if(((isset($data["status"]) && ($data["status"] !== ""))?($data["status"]):'1') == "1"): ?>checked<?php endif; ?> class="ace ace-switch ace-switch-7" type="checkbox" />
-									<span class="lbl"></span>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-ishot"> 是否热门 </label>
-						<div class="col-sm-9">
-							<div class="col-sm-9">
-								<input name="ishot" value="1" id="field-ishot" 
-									<?php if(((isset($data["ishot"]) && ($data["ishot"] !== ""))?($data["ishot"]):'0') == "1"): ?>checked<?php endif; ?> class="ace ace-switch ace-switch-7" type="checkbox" />
-									<span class="lbl"></span>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-istop"> 是否置顶 </label>
-						<div class="col-sm-9">
-							<div class="col-sm-9">
-								<input name="istop" value="1" id="field-istop" 
-									<?php if(((isset($data["istop"]) && ($data["istop"] !== ""))?($data["istop"]):'0') == "1"): ?>checked<?php endif; ?> class="ace ace-switch ace-switch-7" type="checkbox" />
-									<span class="lbl"></span>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label class="col-sm-3 control-label no-padding-right" for="field-iscopy"> 是否转载 </label>
-						<div class="col-sm-9">
-							<div class="col-sm-9">
-								<input name="iscopy" value="1" id="field-iscopy" 
-									<?php if(((isset($data["iscopy"]) && ($data["iscopy"] !== ""))?($data["iscopy"]):'0') == "1"): ?>checked<?php endif; ?> class="ace ace-switch ace-switch-7" type="checkbox" />
-									<span class="lbl"></span>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-				<div class="col-xs-12 col-sm-12">
-					<div class="col-xs-12 col-sm-12">
-						<label class="control-label"> 文章内容 </label>
-					</div>
-					<div class="col-xs-12 col-sm-12">
-						<textarea id='field-content' name="content" title="文章内容"><?php echo ((isset($data["content"]) && ($data["content"] !== ""))?($data["content"]):''); ?></textarea>
-					</div>
-				</div>
-				</div>
+			<!-- #section:custom/scrollbar -->
+			<div class="widget-main no-padding scrollable" data-size="125">
+				<!-- 表单 开始 -->
+				<table id="data-table" class="table table-bordered table-hover">
+					<tr>
+						<th class="center">文章标题</th>
+						<td><?php echo ($data["title"]); ?></td>
+						<th rowspan="2" class="center" style="vertical-align: middle;">文章图片</th>
+						<td rowspan="2"><?php echo showImage($data['minimg'], '', 60);?></td>
+					</tr>
+					<tr>
+						<th class="center">发布时间</th><td><?php echo ($data["pushtime"]); ?></td>
+					</tr>
+					<tr>
+						<th class="center">文章类型</th><td><?php echo ($data["catename"]); ?></td>
+						<th class="center">文章标签</th>
+						<td>
+							<?php foreach(explode(',',$data['tagname']) as $val): ?>
+								<span class="label label-sm label-success"><?php echo ($val); ?></span>
+							<?php endforeach; ?>
+						</td>
+					</tr>
+					<tr>
+						<th class="center">点&ensp;击&ensp;量</th><td><?php echo ($data["clicknum"]); ?></td>
+						<th class="center">浏&ensp;览&ensp;量</th><td><?php echo ($data["looknum"]); ?></td>
+					</tr>
+					<tr>
+						<th class="center">是否显示</th>
+						<td>
+							<span class="label label-sm <?php if(($data["status"]) == "1"): ?>label-success">显示<?php else: ?>label-grey">隐藏<?php endif; ?></span>
+						</td>
+						<th class="center">是否热门</th>
+						<td>
+							<span class="label label-sm <?php if(($data["ishot"]) == "1"): ?>label-danger">热门<?php else: ?>label-success">正常<?php endif; ?></span>
+						</td>
+					</tr>
+					<tr>
+						<th class="center">是否置顶</th>
+						<td>
+							<span class="label label-sm <?php if(($data["istop"]) == "1"): ?>label-warning">置顶<?php else: ?>label-success">正常<?php endif; ?></span>
+						</td>
+						<th class="center">是否转载</th>
+						<td>
+							<span class="label label-sm <?php if(($data["iscopy"]) == "1"): ?>label-warning">转载<?php else: ?>label-success">原创<?php endif; ?></span>
+						</td>
+					</tr>
+					<tr>
+						<th class="center">关&ensp;键&ensp;词</th>
+						<td colspan="3"><?php echo ($data["keywords"]); ?></td>
+					</tr>
+					<tr>
+						<th class="center">创&ensp;建&ensp;人</th><td><?php echo (getAdminUser($data["create_id"],1)); ?></td>
+						<th class="center">修&ensp;改&ensp;人</th><td><?php echo (getAdminUser($data["update_id"],1)); ?></td>
+					</tr>
+					<tr>
+						<th class="center">创建时间</th><td><?php echo ($data["create_time"]); ?></td>
+						<th class="center">修改时间</th><td><?php echo ($data["update_time"]); ?></td>
+					</tr>
+					<tr>
+						<th class="center">文章内容</th>
+						<td colspan="3"></td>
+					</tr>
+					<tr>
+						<td colspan="4"><?php echo (htmlspecialchars_decode($data["content"])); ?></td>
+					</tr>
+				</table>
+				<!-- 表单 结束 -->
 			</div>
-			<!-- 主体 E -->
-			<?php if(!empty($data["id"])): ?><input type="hidden" name="id" value="<?php echo ($data["id"]); ?>">
-				<input type="hidden" name="old_image" value="<?php echo ($data["image"]); ?>">
-				<input type="hidden" name="old_minimg" value="<?php echo ($data["minimg"]); ?>"><?php endif; ?>
-			<!-- 底部 S -->
-			<div class="widget-toolbox padding-8 clearfix">
-				<div class="btn-group pull-left">
-					<button type="submit" class="btn btn-sm btn-success btn-bold">
-					<!-- <button type="submit" class="btn btn-sm btn-success btn-bold" data-toggle="button"> -->
-						<i class="ace-icon fa fa-save"></i>
-						保存
-					</button> 
-				</div>
-
-				<div class="btn-group pull-right">
-					<button type="reset" value="Reset" class="btn btn-sm btn-danger btn-bold">
-						<i class="ace-icon fa fa-undo"></i>
-						重置
-					</button> 
-				</div>
-			</div>
-			<!-- 底部 E -->
-			</form>
-			<!-- 表单 结束 -->
+			<!-- /section:custom/scrollbar -->
 		</div>
 	</div>
 </div>
@@ -838,23 +760,6 @@
 		<script type="text/javascript" src="/Public/static/admin/js/main.js"></script>
 		
 		
-<script src="/Public/static/ace/js/ace-elements.js"></script>
-<script src="/Public/static/components/_mod/bootstrap-tag/bootstrap-tag.min.js"></script>
-
-<script src="/Public/static/components/moment/moment.min.js"></script>
-<script src="/Public/static/components/bootstrap-daterangepicker/daterangepicker.min.js"></script>
-<script src="/Public/static/components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-
-<script type="text/javascript" src="/Public/static/components/UEditor-utf8/ueditor.config.js"></script>
-<script type="text/javascript" src="/Public/static/components/UEditor-utf8/ueditor.all.min.js"></script>
-<script type="text/javascript" src="/Public/static/components/UEditor-utf8/lang/zh-cn/zh-cn.js"></script>
-
-<script type="text/javascript">
-	$(function($) {
-
-    });
-</script>
-
 
 		
 		<script src="/Public/static/ace/js/src/elements.scroller.js"></script>
@@ -882,110 +787,5 @@
 		<script src="/Public/static/ace/js/src/ace.searchbox-autocomplete.js"></script>
 		
 		
-<script type="text/javascript">
-$(function($) {
-$('#inputfile').ace_file_input({
-		style: 'well',
-		btn_choose: '拖放文件，或单击以选择图片',
-		btn_change: null,
-		no_icon: 'ace-icon fa fa-cloud-upload',
-		droppable: true,
-		thumbnail: 'small'//large | fit
-		//,icon_remove:null//set null, to hide remove/reset button
-		/**,before_change:function(files, dropped) {
-			//Check an example below
-			//or examples/file-upload.html
-			return true;
-		}*/
-		/**,before_remove : function() {
-			return true;
-		}*/
-		,
-		preview_error : function(filename, error_code) {
-			//name of the file that failed
-			//error_code values
-			//1 = 'FILE_LOAD_FAILED',
-			//2 = 'IMAGE_LOAD_FAILED',
-			//3 = 'THUMBNAIL_FAILED'
-			//alert(error_code);
-		}
-
-	}).on('change', function(){
-		//console.log($(this).data('ace_input_files'));
-		//console.log($(this).data('ace_input_method'));
-});
-// 设置input file 样式
-$('.input-file .ace-file-input').addClass('col-xs-10 col-sm-10').css('padding',0);
-// 设置标签
-var tag_input = $('#field-tag');
-	try{
-		tag_input.tag(
-		  {
-			placeholder:tag_input.attr('placeholder'),
-			//enable typeahead by specifying the source array
-			// source: ace.vars['US_STATES'],//defined in ace.js >> ace.enable_search_ahead
-			
-			//or fetch data from database, fetch those that match "query"
-			source: function(query, process) {
-			  $.ajax({url: '<?php echo U("Tag/ajaxTag");?>?q='+encodeURIComponent(query)})
-			  .done(function(result_items){
-			  	result_items = eval("("+result_items+")");
-				process(result_items);
-			  });
-			}
-			
-		  }
-		)
-
-		//programmatically add/remove a tag
-		var $tag_obj = $('#field-tag').data('tag');
-		// 设置默认值
-		var tagVal = "<?php echo ((isset($data["tagname"]) && ($data["tagname"] !== ""))?($data["tagname"]):''); ?>";
-		if (tagVal != '') {
-			$(tagVal.split(',')).each(function(i, k) {
-				$tag_obj.add(k);
-			});
-		}
-		var index = $tag_obj.inValues('some tag');
-		$tag_obj.remove(index);
-	}
-	catch(e) {
-		//display a textarea for old IE, because it doesn't support this plugin or another one I tried!
-		tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
-		//autosize($('#field-tag'));
-	}
-$('.input-tag .tags').addClass('col-xs-10 col-sm-10').css('width','83.33%');
-// 时间
-if(!ace.vars['old_ie']) {
-	$('#field-pushtime').datetimepicker({
-		 format: 'YYYY-MM-DD hh:mm:00',//use this option to display seconds
-		 // defaultDate： '<?php echo ($data["pushtime"]); ?>',
-		 sideBySide: true, //可以同时选择日期和时间
-		 icons: {
-			time: 'fa fa-clock-o',
-			date: 'fa fa-calendar',
-			up: 'fa fa-chevron-up',
-			down: 'fa fa-chevron-down',
-			previous: 'fa fa-chevron-left',
-			next: 'fa fa-chevron-right',
-			today: 'fa fa-arrows ',
-			clear: 'fa fa-trash',
-			close: 'fa fa-times'
-		 }
-	}).next().on(ace.click_event, function(){
-		$(this).prev().focus();
-	});
-	// $('#field-pushtime').data('DateTimePicker').date(moment());
-}
-// 编辑框
-	var ue = UE.getEditor('field-content', {
-		"initialFrameWidth" : "100%",
-		"initialFrameHeight" : 300,
-		"elementPathEnabled" : false,
-	});
-});
-
-</script>
-
 	</body>
 </html>

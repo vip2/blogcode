@@ -22,17 +22,29 @@ class BaseController extends Controller {
                 // 获取博客导航
                 $this->getNavData();
                 // 获取博客的排行榜
-                $this->getRankingData();
+                $rankingData = $this->getRankingData();
+                $this->assign('rankingData', $rankingData);
+                // 获取标签云数据
+                $tagCloudData = $this->getTagCloudData();
+                $this->assign('tagCloudData', json_encode($tagCloudData));
                 // 获取友情链接
-                $this->getLinks();
+                $linkData = $this->getLinks();
+                $this->assign('linkData', $linkData);
             }
         }
 	}
 
+    /**
+     * 获取排行榜数据
+     *
+     * @param  boolean  $clickArticle      点击排行
+     * @param  boolean  $newArticle        最新文章
+     * @param  boolean  $recommendArticle  站长推荐
+     */
     public function getRankingData($clickArticle = true, $newArticle = true, $recommendArticle = true)
     {
         $articleNum = C('RANKING_DEFAULT_NUM', 10);// 获取显示条数
-        $Article = M('Admin/Article');
+        $Article = D('Admin/Article');
         // 处理搜索条件
         $where['status'] = array('eq', 1);
         $where['pushtime'] = array('lt', date('Y-m-d H:i:s'));
@@ -40,20 +52,20 @@ class BaseController extends Controller {
         $data = array();//返回数据
         // 获取点击排行文章 
         if ($clickArticle) {
-            $data['clickArticle'] = $Article->field($fields)->where($where)->order('clicknum DESC,pushtime DESC, iscopy ASC')
+            $data['click-sort'] = $Article->field($fields)->where($where)->order('clicknum DESC,pushtime DESC, iscopy ASC')
                                             ->limit($articleNum)->select();
         }
         // 获取最新文章
         if ($newArticle) {
-            $data['newArticle'] = $Article->field($fields)->where($where)->order('pushtime DESC, clicknum DESC, iscopy ASC')
+            $data['new-article'] = $Article->field($fields)->where($where)->order('pushtime DESC, clicknum DESC, iscopy ASC')
                                           ->limit($articleNum)->select();
         }
         // 获取推荐文章
         if ($recommendArticle) {
-            $data['recommendArticle'] = $Article->field($fields)->where($where)->order('istop DESC, pushtime DESC, clicknum DESC, iscopy ASC')
+            $data['admin-recommend'] = $Article->field($fields)->where($where)->order('istop DESC, pushtime DESC, clicknum DESC, iscopy ASC')
                                                 ->limit($articleNum)->select();
         }
-        $this->assign($data);
+        return $data;
     }
     
     // 设置页面信息
@@ -97,7 +109,30 @@ class BaseController extends Controller {
             $val['url'] = isset($url['scheme'])?$val['url']:'http://'.$val['url'];
             $tempLinkData[$k] = $val;
         }
-        $this->assign('linkData', $tempLinkData);
+        return $tempLinkData;
+    }
+
+    /**
+     * 获取标签云数据
+     *
+     * @param  integer  $tagNum  标签云数量
+     *
+     * @return  [type]   [description]
+     */
+    public function getTagCloudData($tagNum = 50, $target = '_self')
+    {
+        $tagModel = D('Admin/Tag');
+        $tagData = $tagModel->alias('a')->field(array('a.id','a.tagname','COUNT(b.tag_id) as count'))
+                    ->join(" LEFT JOIN `".C('DB_PREFIX')."article_tag` b ON a.`id` = b.`tag_id`")
+                    ->group('a.id')->order('count DESC, a.id ASC')->limit($tagNum)->select();
+        // 处理标签数据
+        $data = array();
+        foreach ($tagData as $k => $val) {
+            $data[$k]['label']  = $val['tagname'];
+            $data[$k]['url']    = $val['id'];
+            $data[$k]['target'] = $target;
+        }
+        return $data;
     }
 
     // 升级页面

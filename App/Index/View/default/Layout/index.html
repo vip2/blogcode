@@ -311,7 +311,17 @@
     						</li>
         				</nav>
         				<div class="tab-content right-nav-content">
-    						<ul class="tab-pane fade in active" id="click-sort">
+                            <foreach name="rankingData" item="vo" key="key">
+                                <ul class="tab-pane fade <eq name='key' value='click-sort'>in active</eq>" id="<{$key}>">
+                                    <foreach name="vo" item="v" key="k">
+                                        <li>
+                                            <span class="li-num num-<{$k+1}>"><{$k+1}></span> 
+                                            <a href="<{:U('Index/Article/info', array('id'=>$v['id']))}>"><{$v.title}></a>
+                                        </li>
+                                    </foreach>
+                                </ul>
+                            </foreach>
+    				<!-- 		<ul class="tab-pane fade in active" id="click-sort">
     							<li><span class="li-num num-1">1</span> <a href="#">11原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
     							<li><span class="li-num num-2">2</span> <a href="#">模拟朋友圈数据存储原理</a></li>
     							<li><span class="li-num num-3">3</span> <a href="#">CSS省略号text-overflow超出溢出显示省略号</a></li>
@@ -346,7 +356,7 @@
     							<li><span class="li-num num-8">8</span> <a href="#">DIV+CSS规范命名大全集合</a></li>
     							<li><span class="li-num num-9">9</span> <a href="#">虚拟主机相关知识</a></li>
     							<li><span class="li-num num-10">10</span> <a href="#">个人博客如何减少跳出提高流量</a></li>
-    						</ul>
+    						</ul> -->
     					</div>
     					<!-- 排行 -->
     					<!-- 标签云 -->
@@ -424,6 +434,7 @@
   		{ label: 'Notification', url: '#', target: '_top' },
   		{ label: 'Parallax', url: '#', target: '_top' }
   	];
+    entries = <{$tagCloudData}>;
   	var cloudId = $( '#tag-cloud' );
   	var cloudW = cloudId.width()*0.8;
   	var settings = {
